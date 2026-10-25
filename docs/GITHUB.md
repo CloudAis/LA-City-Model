@@ -42,3 +42,7 @@ Blender4.3.2打开outputs/LA_Delivery/LA_Master.blend，保持整个assets目录
 最终查看器源码在outputs/LA_Delivery/viewer/source，历史阶段09源码在viewer。前者使用锁定版本，运行npm ci后npm run build；将新构建接入模型前需重新执行交互/性能及文件清单检查。冻结的原始阶段10交付不因发布修改。
 
 发布工具scripts/github_lfs_delivery.py使用独立Git索引维护模型分支，不检出或覆盖作者文件；128MiB分卷上传后从全新LFS缓存实际下载核对SHA，再登记Git指针。完整归档另从GitHub逐卷流式回读，逐文件核对交付清单。实际发布和检查证据位于原工作区work/reports/github_publication。
+
+## 1.0.0实际上传验收
+
+2026-10-25T11:36:02.822185+08:00：26个分卷，共3,486,704,146字节，恢复文件合计3,997,471,178字节；实际从GitHub逐卷回读、解压并逐文件核对11,596项，全部通过。查看器和材质ZIP独立下载SHA均通过。压缩流SHA256为1f50310d4e030c4199fe968745b0948b79e99d21ef9502cf6f0f89a6577513e6。机器可读证据见[GITHUB_DELIVERY_CHECKS.json](GITHUB_DELIVERY_CHECKS.json)。

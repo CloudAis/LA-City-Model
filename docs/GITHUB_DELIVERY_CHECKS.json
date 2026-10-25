@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "validation_completed_at": "2026-10-25T11:36:02.822185+08:00",
+  "repository": "CloudAis/LA-City-Model",
+  "visibility": "private",
+  "large_file_transport": "git_lfs",
+  "model_branch": "delivery-v1.0.0",
+  "archive_parts": 26,
+  "archive_bytes": 3486704146,
+  "archive_sha256": "1f50310d4e030c4199fe968745b0948b79e99d21ef9502cf6f0f89a6577513e6",
+  "uncompressed_file_bytes": 3997471178,
+  "actual_remote_archive_files_verified": 11596,
+  "actual_remote_git_pointers_verified": true,
+  "delivery_manifest_sha256": "0a7bf351af46f518ed43cf40ba23a90fb0976a92c574a0d6f5bf4a7c75fbe50c",
+  "all_parts_downloaded_and_sha256_checked": true,
+  "viewer_zip": {
+    "name": "LA_Local_Private_Viewer_1.0.zip",
+    "bytes": 471177681,
+    "sha256": "f6ee7cf10acbef1b60bd38be32ae0e4e0cebec8c213576993f94eceb4b962b51",
+    "remote_download_verified": true
+  },
+  "materials_zip": {
+    "name": "LA_Original_Materials_And_Tools_1.0.zip",
+    "bytes": 77087251,
+    "sha256": "f8f4dd159373679460cf3fef0fab62ef8b03e1f47182c54a24fa8aa3999ed4b2",
+    "remote_download_verified": true
+  },
+  "original_raw_data_and_full_history_caches_included": false,
+  "overall_model_fidelity_acceptance": "部分通过",
+  "stage10_model_files_unchanged": true
+}
