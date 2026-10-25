@@ -1,6 +1,6 @@
 # Los Angeles City Exterior · 1.0.0
 
-> GitHub私有仓库：[CloudAis/LA-City-Model](https://github.com/CloudAis/LA-City-Model)。完整工程与本地查看器通过[v1.0.0 Release](https://github.com/CloudAis/LA-City-Model/releases/tag/v1.0.0)下载。大模型不放入Git历史；恢复方法见[GitHub下载与恢复](docs/GITHUB.md)。需要有访问该私有仓库的账号。
+> GitHub发布准备已完成，计划目标为私有仓库`CloudAis/LA-City-Model`。当前连接创建仓库返回HTTP403，尚未上传；需先创建该私有仓库并授权当前连接访问。源码恢复包为`outputs/LA_GitHub_Source_1.0.bundle`；后续大模型通过Release附件上传，方法见[GitHub下载与恢复](docs/GITHUB.md)。
 
 工程：`/workspace/Base`。第十阶段总核查、修复、展示与本地交付已整理。**整体部分通过**：工程与查看功能通过，数据年代、推断高度、地标细部、场地接口及照片写实仍有明确缺口。开始工作先读 [PROJECT_SPEC.md](PROJECT_SPEC.md) 和 [STATUS.md](STATUS.md)。
 

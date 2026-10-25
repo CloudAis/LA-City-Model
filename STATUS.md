@@ -3,6 +3,14 @@
 
 更新时间：2026-10-25T00:21:05.651489+08:00（Asia/Singapore）；工程`/workspace/Base`。用户已明确授权第十阶段总验收、修复和交付，并允许降低云端帧率目标。本次实际交付流程**通过**，十阶段整体**部分通过**。阶段01通过；阶段02–08部分通过；阶段09按本次软件设备调整后的性能范围通过；阶段10流程通过。详细逐阶段目标、实际成果、验证、结果、缺口和证据路径见[最终验收表](outputs/LA_Delivery/docs/FINAL_ACCEPTANCE.md)。不能把本地功能/数值检查通过扩大为全城照片写实、逐栋实测或工程精度验收。
 
+## GitHub发布状态（2026-10-25T10:56:57.412962+08:00）
+
+用户已选择新建私有仓库并发布完整工程/查看器。目标`CloudAis/LA-City-Model`，现有公开`CloudAis/Base`保持原远端版本。当前**未发布成功**：已认证账号CloudAis的连接在GraphQL createRepository和REST POST /user/repos均返回403 `Resource not accessible by integration`，属于GitHub集成权限限制；没有上传模型到公开仓库，也没有更改现有仓库可见性。
+
+源码、锁定依赖、参数和文档已整理为283份Git文件（后续说明修订仍为同一组文件），大模型/原始数据/缓存/node_modules未进入Git。新增`scripts/github_release_bundle.py`用于私有Release128MiB分卷上传及逐卷回读/全文件SHA校验，`scripts/restore_delivery.py`用于Python标准库流式恢复；四项实际小归档测试覆盖分卷边界、保留匹配文件、拒绝用户修改和损坏分卷，全部通过。完整模型最终交付保持原SHA不变，未因发布修改已验收文件。
+
+已保存Git源码恢复包`outputs/LA_GitHub_Source_1.0.bundle`（仅代码/配置/文档，不含模型）；发布计划与恢复说明`docs/GITHUB.md`；权限错误和准备检查`work/reports/github_publication/`。后续需要用户先在GitHub创建**Private**的`CloudAis/LA-City-Model`并让当前GitHub连接有访问权限，然后推送源码、建立draft Release、分卷上传与真实回读核验，全部通过后发布Release。未把本地准备、403或未运行的大归档上传标记为成功。
+
 ## 最终成果与打开方式
 
 - 完整本地交付：`outputs/LA_Delivery/`；版本1.0.0；[主工程](outputs/LA_Delivery/LA_Master.blend)，SHA256`72e195c9343680f6c8849c783a575cf1be54e68b05075d8087c947353fbc5926`。Blender4.3.2实际保存、退出、独立重开及干净迁移目录测试通过；保留`assets/linked/stage07_city_medium.blend`和`stage07_final.blend`及纹理目录。默认HistoricCore米制工作视图约1,409,177三角形、CPU Cycles，十二个固定机位在`99_FINAL_CHECK_CAMERAS`。不只复制主文件。
