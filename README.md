@@ -1,6 +1,6 @@
 # Los Angeles City Exterior · 1.0.0
 
-基于真实地理资料的洛杉矶Blender城市外景与本地交互查看器。仓库为私有；完整模型上传与校验进行中，发布完成后见[v1.0.0 Release](https://github.com/CloudAis/LA-City-Model/releases/tag/v1.0.0)。整体建模验收为**部分通过**，保留数据年代、推断高度、地标细部及场地接口缺口。
+基于真实地理资料的洛杉矶Blender城市外景与本地交互查看器。仓库为私有；源码、完整模型和查看器已上传并核验通过，下载入口为[v1.0.0 Release](https://github.com/CloudAis/LA-City-Model/releases/tag/v1.0.0)。整体建模验收为**部分通过**，保留数据年代、推断高度、地标细部及场地接口缺口。
 
 ![实际模型：Downtown天际线，实时PBR兼容显示](docs/gallery/downtown_skyline.png)
 

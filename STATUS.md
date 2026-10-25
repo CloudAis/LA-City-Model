@@ -3,13 +3,17 @@
 
 更新时间：2026-10-25T00:21:05.651489+08:00（Asia/Singapore）；工程`/workspace/Base`。用户已明确授权第十阶段总验收、修复和交付，并允许降低云端帧率目标。本次实际交付流程**通过**，十阶段整体**部分通过**。阶段01通过；阶段02–08部分通过；阶段09按本次软件设备调整后的性能范围通过；阶段10流程通过。详细逐阶段目标、实际成果、验证、结果、缺口和证据路径见[最终验收表](outputs/LA_Delivery/docs/FINAL_ACCEPTANCE.md)。不能把本地功能/数值检查通过扩大为全城照片写实、逐栋实测或工程精度验收。
 
-## GitHub发布状态（2026-10-25T11:11:39.614392+08:00）
+## GitHub发布状态（2026-10-25T11:36:02.822185+08:00）
 
-用户已将`CloudAis/LA-City-Model`改为**PRIVATE**，当前连接实际核对通过，源码已成功推送到其`main`；现有公开`CloudAis/Base`远端未改动。`v1.0.0`草稿Release已建立。Release附件端点uploads.github.com拒绝当前凭据（401），改用已实际完成小文件和首个128MiB分卷上传/独立下载测试的Git LFS；大文件保存于delivery-v1.0.0分支，main保持轻量源码。完整分卷和查看器正在上传/核验中，尚不标记大归档或最终发布成功。草稿按tag查询404的兼容问题已修正，不改变模型。
+私有仓库[CloudAis/LA-City-Model](https://github.com/CloudAis/LA-City-Model)已接收源码和完整最终交付，GitHub实际可见性为PRIVATE。默认main保持轻量源码/文档，模型通过Git LFS保存于delivery-v1.0.0分支的deliveries/v1.0.0目录；[v1.0.0 Release](https://github.com/CloudAis/LA-City-Model/releases/tag/v1.0.0)提供下载入口。现有公开CloudAis/Base远端仍为原始版本，没有上传到公开仓库。
 
-源码、锁定依赖、参数、说明和上传/恢复工具已提交Git；大模型、原始数据、历史缓存和node_modules未进入Git。完整模型/关联库、8919分块、十地标、实际查看器/图/视频将通过模型分支Git LFS交付，Release提供下载入口。工具使用128MiB分卷控制本地磁盘，并从GitHub附件回读SHA及逐文件核对交付清单。恢复脚本四项小归档检查通过，完整远程检查等待实际上传完成。源模型和冻结的阶段10成果保持原SHA。
+完整最终交付：26个分卷，压缩流3,486,704,146字节、还原文件3,997,471,178字节；实际从GitHub逐卷下载并解析，逐文件核对11,596项（11,595内部清单项加清单本身），全部通过。所有LFS Git指针实际从远端读取核对；独立查看器ZIP471,177,681字节、材质ZIP77,087,251字节均实际独立下载SHA通过。完整归档SHA256为`1f50310d4e030c4199fe968745b0948b79e99d21ef9502cf6f0f89a6577513e6`，不是仅核对本地文件或只看到上传成功提示。
 
-原始约9GB数据及阶段01–09全历史缓存继续保留本云工作区，不包含在最终Release交付目录中。源码恢复包`outputs/LA_GitHub_Source_1.0.bundle`保留为先前准备版本；本次最新源码以私有仓库main为准。上传证据在`work/reports/github_publication`，原权限403/可见性阻碍已记入历史报告。
+源码有实际模型预览、原文验收/性能/许可说明副本、锁定依赖、参数、重建与检查脚本。175个Python源码语法检查通过，恢复脚本四项小归档测试通过；完整远程解包/校验已实际完成。源码原始恢复bundle仍保留为发布前历史版本，最新源码以main/v1.0.0为准。机器可读验收见docs/GITHUB_DELIVERY_CHECKS.json；原日志及远程检查work/reports/github_publication，发布对象最终状态另保存在publication_status.json。
+
+仅浏览：打开模型分支中的LA_Local_Private_Viewer_1.0.zip文件页下载原文件，完整解压后python start.py；同机浏览器127.0.0.1:8090。完整编辑：安装Git LFS并克隆delivery-v1.0.0，再执行python scripts/restore_delivery.py --parts-dir deliveries/v1.0.0 --output outputs。Blender4.3.2打开outputs/LA_Delivery/LA_Master.blend并保留整个assets目录。下载、恢复与磁盘预算见docs/GITHUB.md；手动恢复建议10GB，LFS克隆加缓存建议15GB。
+
+约9GB原始采集数据、阶段01–09全历史缓存/工程继续保留本云工作区，不在最终GitHub交付目录中。完整最终主工程、关联库、8919分块、十地标、查看器、纹理、图/视频及样本重建输入均包含。原阶段10模型SHA不变，整体仍为部分通过。未添加全项目统一许可证。GitHub附件上传端点401已用授权Git LFS替代；之前创建/可见性权限403和失败草稿接口记录均为历史，不影响已通过的大文件上传与回读。Release通过Git LFS下载链接交付，不是传统二进制附件列表。
 
 ## 最终成果与打开方式
 
