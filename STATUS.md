@@ -5,6 +5,8 @@
 
 ## GitHub发布状态（2026-10-25T10:56:57.412962+08:00）
 
+最新核对（2026-10-25T11:03:32.254936+08:00）：用户已创建`CloudAis/LA-City-Model`，当前连接能够读取仓库元数据；该仓库目前是**PUBLIC且为空**。尝试将其按用户选择改为Private时，GitHub PATCH /repos/CloudAis/LA-City-Model返回403 `Resource not accessible by integration`。因此仍未上传源码或模型；需要用户在仓库设置“管理可见性”中改为Private后继续。以下创建权限403是此前历史记录。
+
 用户已选择新建私有仓库并发布完整工程/查看器。目标`CloudAis/LA-City-Model`，现有公开`CloudAis/Base`保持原远端版本。当前**未发布成功**：已认证账号CloudAis的连接在GraphQL createRepository和REST POST /user/repos均返回403 `Resource not accessible by integration`，属于GitHub集成权限限制；没有上传模型到公开仓库，也没有更改现有仓库可见性。
 
 源码、锁定依赖、参数和文档已整理为283份Git文件（后续说明修订仍为同一组文件），大模型/原始数据/缓存/node_modules未进入Git。新增`scripts/github_release_bundle.py`用于私有Release128MiB分卷上传及逐卷回读/全文件SHA校验，`scripts/restore_delivery.py`用于Python标准库流式恢复；四项实际小归档测试覆盖分卷边界、保留匹配文件、拒绝用户修改和损坏分卷，全部通过。完整模型最终交付保持原SHA不变，未因发布修改已验收文件。
