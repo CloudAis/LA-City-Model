@@ -31,7 +31,7 @@ python scripts/restore_delivery.py --parts-dir deliveries/v1.0.0 --output output
 python scripts/restore_delivery.py --parts-dir downloads --output outputs
 ```
 
-恢复脚本只依赖Python3.10+标准库；先核对每卷SHA256，再流式解包并核对完整交付清单，无需另存拼接压缩文件。已有同内容文件会核对并保留，用户修改文件会使脚本停止。恢复需要约4GB目录空间加下载分卷和ZIP空间，建议预留至少6GB。GitHub自动生成的源码压缩包可能只含LFS指针，模型获取请使用Git LFS或文件页原文件下载。
+恢复脚本只依赖Python3.10+标准库；先核对每卷SHA256，再流式解包并核对完整交付清单，无需另存拼接压缩文件。已有同内容文件会核对并保留，用户修改文件会使脚本停止。手动下载分卷并恢复建议至少10GB可用空间；Git LFS克隆还会保留一份大文件对象缓存，建议至少15GB。GitHub自动生成的源码压缩包可能只含LFS指针，模型获取请使用Git LFS或文件页原文件下载。
 
 Blender4.3.2打开outputs/LA_Delivery/LA_Master.blend，保持整个assets目录的相对位置。查看器从outputs/LA_Delivery运行python start.py。独立地标在landmarks，展示在previews/index.html，视频在video/city_tour.mp4。
 
