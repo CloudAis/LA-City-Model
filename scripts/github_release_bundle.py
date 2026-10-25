@@ -30,7 +30,12 @@ def save(name, value):
 
 
 def assets(repo, tag):
-    return api(f'repos/{repo}/releases/tags/{tag}')['assets']
+    # GitHub's tag lookup omits drafts, even when an authenticated owner can
+    # list and upload to them. Resolve the authorized draft by its tag instead.
+    for release in api(f'repos/{repo}/releases?per_page=100'):
+        if release['tag_name'] == tag:
+            return release['assets']
+    raise RuntimeError('Release/draft not found for tag: ' + tag)
 
 
 def download(asset_id, repo):
@@ -82,11 +87,16 @@ class UploadParts(io.RawIOBase):
         self.rows = []
         self.archive_hash = hashlib.sha256()
         self.total = 0
+        self.aborted = False
 
     def writable(self):
         return True
 
     def write(self, data):
+        # gzip finalizes its buffer while unwinding an upload exception. Drop
+        # only these cleanup bytes; keep the original failed part for recovery.
+        if self.aborted:
+            return len(data)
         data = memoryview(data)
         length = len(data)
         self.archive_hash.update(data)
@@ -110,7 +120,12 @@ class UploadParts(io.RawIOBase):
         self.current.close()
         self.current = None
         print('UPLOAD_PART', self.path.name, self.size, flush=True)
-        self.rows.append(upload_file(self.path, self.repo, self.tag))
+        try:
+            verified = upload_file(self.path, self.repo, self.tag)
+        except BaseException:
+            self.aborted = True
+            raise
+        self.rows.append(verified)
         save('parts_in_progress.json', {'parts': self.rows, 'complete': False})
         self.path.unlink()
 

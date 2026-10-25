@@ -3,15 +3,13 @@
 
 更新时间：2026-10-25T00:21:05.651489+08:00（Asia/Singapore）；工程`/workspace/Base`。用户已明确授权第十阶段总验收、修复和交付，并允许降低云端帧率目标。本次实际交付流程**通过**，十阶段整体**部分通过**。阶段01通过；阶段02–08部分通过；阶段09按本次软件设备调整后的性能范围通过；阶段10流程通过。详细逐阶段目标、实际成果、验证、结果、缺口和证据路径见[最终验收表](outputs/LA_Delivery/docs/FINAL_ACCEPTANCE.md)。不能把本地功能/数值检查通过扩大为全城照片写实、逐栋实测或工程精度验收。
 
-## GitHub发布状态（2026-10-25T10:56:57.412962+08:00）
+## GitHub发布状态（2026-10-25T11:11:39.614392+08:00）
 
-最新核对（2026-10-25T11:03:32.254936+08:00）：用户已创建`CloudAis/LA-City-Model`，当前连接能够读取仓库元数据；该仓库目前是**PUBLIC且为空**。尝试将其按用户选择改为Private时，GitHub PATCH /repos/CloudAis/LA-City-Model返回403 `Resource not accessible by integration`。因此仍未上传源码或模型；需要用户在仓库设置“管理可见性”中改为Private后继续。以下创建权限403是此前历史记录。
+用户已将`CloudAis/LA-City-Model`改为**PRIVATE**，当前连接实际核对通过，源码已成功推送到其`main`；现有公开`CloudAis/Base`远端未改动。`v1.0.0`草稿Release已建立，完整工程分卷和查看器正在上传/核验中，尚不标记大归档或最终发布成功。GitHub草稿按tag查询404的兼容问题已修正为授权Release列表查找，不改变模型。
 
-用户已选择新建私有仓库并发布完整工程/查看器。目标`CloudAis/LA-City-Model`，现有公开`CloudAis/Base`保持原远端版本。当前**未发布成功**：已认证账号CloudAis的连接在GraphQL createRepository和REST POST /user/repos均返回403 `Resource not accessible by integration`，属于GitHub集成权限限制；没有上传模型到公开仓库，也没有更改现有仓库可见性。
+源码、锁定依赖、参数、说明和上传/恢复工具已提交Git；大模型、原始数据、历史缓存和node_modules未进入Git。完整模型/关联库、8919分块、十地标、实际查看器/图/视频将通过Release附件交付。工具使用128MiB分卷控制本地磁盘，并从GitHub附件回读SHA及逐文件核对交付清单。恢复脚本四项小归档检查通过，完整远程检查等待实际上传完成。源模型和冻结的阶段10成果保持原SHA。
 
-源码、锁定依赖、参数和文档已整理为283份Git文件（后续说明修订仍为同一组文件），大模型/原始数据/缓存/node_modules未进入Git。新增`scripts/github_release_bundle.py`用于私有Release128MiB分卷上传及逐卷回读/全文件SHA校验，`scripts/restore_delivery.py`用于Python标准库流式恢复；四项实际小归档测试覆盖分卷边界、保留匹配文件、拒绝用户修改和损坏分卷，全部通过。完整模型最终交付保持原SHA不变，未因发布修改已验收文件。
-
-已保存Git源码恢复包`outputs/LA_GitHub_Source_1.0.bundle`（仅代码/配置/文档，不含模型）；发布计划与恢复说明`docs/GITHUB.md`；权限错误和准备检查`work/reports/github_publication/`。后续需要用户先在GitHub创建**Private**的`CloudAis/LA-City-Model`并让当前GitHub连接有访问权限，然后推送源码、建立draft Release、分卷上传与真实回读核验，全部通过后发布Release。未把本地准备、403或未运行的大归档上传标记为成功。
+原始约9GB数据及阶段01–09全历史缓存继续保留本云工作区，不包含在最终Release交付目录中。源码恢复包`outputs/LA_GitHub_Source_1.0.bundle`保留为先前准备版本；本次最新源码以私有仓库main为准。上传证据在`work/reports/github_publication`，原权限403/可见性阻碍已记入历史报告。
 
 ## 最终成果与打开方式
 
