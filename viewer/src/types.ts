@@ -1,0 +1,6 @@
+export type V3=[number,number,number];
+export interface Resource {id:string;layer:string;lod:number;url:string;bytes:number;sha256:string;origin_city_m:V3;bounds_city_m:[V3,V3];triangles:number;objects:number;materials:number;feature_count:number;metadata_url:string;source_summary?:string;overview?:boolean;feature_ids?:number[];position_quantization_error_bound_m:number;}
+export interface Quality {pixel_ratio:number;triangles:number;tile_cap:number;cache_mib:number;load_radius_m:number;near_m:number;mid_m:number;texture_px:number;shadows:boolean;}
+export interface View {id:string;name:string;position_m:V3;target_m:V3;lens_mm?:number;}
+export interface Landmark {id:string;name:string;origin_city_m:V3;status:string;source_ids:string[];}
+export interface Manifest {resources:Resource[];landmarks:Landmark[];views:View[];attributions:string[];coordinate_system:{origin_utm_m:number[];grid_convergence_deg:number};config:{qualities:Record<string,Quality>;loading:{concurrency:number;max_retries:number;retry_delay_ms:number;unload_after_s:number;origin_rebase_m:number;lod_hysteresis:number;prefetch_budget_fraction:number};performance_test:{route_seconds:number};city_overview:{position_m:V3;target_m:V3}};instances:{prototypes:Record<string,Resource>;fields:{name:string;kind:string;points_city_m:V3[];attributes:Record<string,number[]|number[][]>}[]};}

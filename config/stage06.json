@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "stage": 6,
+  "seed": 20261021,
+  "validated_profile": "city/medium",
+  "source_checkpoint": "scenes/stage05_city_medium.blend",
+  "output_checkpoint": "scenes/stage06_city_medium.blend",
+  "coordinate_crs": "EPSG:32611",
+  "origin_utm_m": [
+    384992.75594820484,
+    3767182.3649733574
+  ],
+  "vertical": "USGS NAVD88 metres; ground datum only; unknown source ELEV/ele unused",
+  "lods": {
+    "near": {
+      "segments": 64,
+      "facade_grid": true,
+      "frames": true
+    },
+    "mid": {
+      "segments": 32,
+      "facade_grid": true,
+      "frames": false
+    },
+    "far": {
+      "segments": 16,
+      "facade_grid": false,
+      "frames": false
+    }
+  },
+  "runtime_switching_implemented": false,
+  "render": {
+    "width": 1200,
+    "height": 900,
+    "samples": 16,
+    "threads": 4,
+    "device": "CPU",
+    "engine": "CYCLES",
+    "denoising": false
+  },
+  "minimum_disk_reserve_gib": 4,
+  "landmarks": [
+    {
+      "id": "us_bank_tower",
+      "osm_uid": "osm:way:23973401",
+      "height_m": 310.2864,
+      "height_basis": "owner 1018 international feet; rounded published overall top reference",
+      "front_local_direction": [
+        0,
+        -1
+      ],
+      "selected_reference_numbers": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "target_configuration": "1989 tower, renovated operating exterior; no former Skyslide"
+    },
+    {
+      "id": "wilshire_grand",
+      "osm_uid": "osm:way:496246723",
+      "height_m": 335.28,
+      "roof_reference_m": 282.8544,
+      "height_basis": "engineer overall 1100 international feet incl spire; secondary roof928ft conflicts with OSM245/255.5 part heights; crown interpolation inferred",
+      "front_local_direction": [
+        0,
+        -1
+      ],
+      "selected_reference_numbers": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "target_configuration": "completed2017, operating hotel/office exterior; construction photos excluded as current reference"
+    },
+    {
+      "id": "city_hall",
+      "osm_uid": "osm:relation:6333145",
+      "height_m": 138.3792,
+      "height_basis": "secondary published454ft; OSM top part138.4m; primary heritage page confirms1928 three-tier form, not dimensional survey",
+      "front_local_direction": [
+        -1,
+        0
+      ],
+      "selected_reference_numbers": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "target_configuration": "post2001 seismic restoration exterior; 1928 historic tower"
+    },
+    {
+      "id": "disney_hall",
+      "osm_uid": "osm:relation:6333150",
+      "height_m": 36.7,
+      "height_basis": "OSM reported36.7m, not verified dimensional survey; curved shell heights photo-estimated inside this envelope",
+      "front_local_direction": [
+        1,
+        0
+      ],
+      "selected_reference_numbers": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8
+      ],
+      "target_configuration": "completed2003 stainless-steel exterior, not historical mirror-polished portions"
+    },
+    {
+      "id": "the_broad",
+      "osm_uid": "osm:way:427532197",
+      "height_m": 27.4,
+      "height_basis": "OSM reported27.4m; veil cell dimensions and oculus photo estimates",
+      "front_local_direction": [
+        1,
+        0
+      ],
+      "selected_reference_numbers": [
+        8,
+        12,
+        13
+      ],
+      "target_configuration": "2015 main museum; proposed/under-construction expansion not represented as completed"
+    },
+    {
+      "id": "union_station",
+      "osm_uid": "osm:relation:1483140",
+      "height_m": 39.1,
+      "height_basis": "OSM reported39.1m interpreted only as clock-tower envelope; hall roof heights photo-estimated",
+      "front_local_direction": [
+        -1,
+        0
+      ],
+      "selected_reference_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "target_configuration": "1939 Mission Moderne main station exterior; current train platforms inherited from stage04"
+    },
+    {
+      "id": "griffith_observatory",
+      "osm_uid": "osm:way:422130705",
+      "height_m": 23.4696,
+      "height_basis": "Official Observatory Fun Facts: main dome77ft, telescope domes55ft above front lawn; OSM35.9m not used; local front-lawn datum remains DEM-based estimate",
+      "front_local_direction": [
+        0,
+        1
+      ],
+      "selected_reference_numbers": [
+        2,
+        7,
+        8,
+        9,
+        11
+      ],
+      "target_configuration": "post2006 expansion/restoration; three domes, upper terrace, publicly visible exterior only",
+      "telescope_dome_top_m": 16.764,
+      "published_dimensions_m": {
+        "width_excluding_terrace_ramps": 71.9328,
+        "north_south_depth_wall_to_wall": 53.644800000000004,
+        "main_dome_top_from_front_lawn": 23.4696,
+        "telescope_dome_top_from_front_lawn": 16.764
+      },
+      "dimension_source": "https://griffithobservatory.lacity.gov/about/fun-facts/"
+    },
+    {
+      "id": "hollywood_sign",
+      "osm_uid": "osm:relation:1706337",
+      "height_m": 13.716,
+      "height_basis": "45 international feet nominal letters; OSM each13.7m; individual baseline elevations from actual ground with inferred anchor adjustment",
+      "front_local_direction": [
+        0,
+        -1
+      ],
+      "selected_reference_numbers": [
+        1,
+        2,
+        4,
+        5,
+        7
+      ],
+      "target_configuration": "nine-letter1978 replacement steel sign, current arrangement; not1923 HOLLYWOODLAND"
+    },
+    {
+      "id": "dodger_stadium",
+      "osm_uid": "osm:relation:7348164",
+      "height_m": 36.0,
+      "height_basis": "grandstand heights inferred from aerial/field photos; OSM height2m is not stadium overall height",
+      "front_local_direction": [
+        0,
+        -1
+      ],
+      "selected_reference_numbers": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "target_configuration": "post2020 center-field configuration, reference views2024 and older; 2025/26 clubhouse changes not fully verified"
+    },
+    {
+      "id": "memorial_coliseum",
+      "osm_uid": "osm:relation:6100581",
+      "height_m": 40.0,
+      "height_basis": "OSM bowl34.9m source report; club-tower envelope40m inferred, official seven stories not an exact height",
+      "front_local_direction": [
+        1,
+        0
+      ],
+      "selected_reference_numbers": [
+        2,
+        3,
+        4
+      ],
+      "target_configuration": "post2019 Scholarship Club Tower; venue remains Los Angeles Memorial Coliseum; old aerials used for plan only"
+    }
+  ]
+}

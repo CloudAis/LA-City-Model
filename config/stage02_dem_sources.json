@@ -1,0 +1,73 @@
+{
+  "downtown_1m_file": "data/raw/stage02/dem/usgs_1m_downtown_B23.tif",
+  "city_tiles": [
+    {
+      "title": "USGS 1/3 Arc Second n34w119 20250826",
+      "moreInfo": "This tile of the 3D Elevation Program (3DEP) seamless products is 1/3 Arc Second resolution. 3DEP data serve as the elevation layer of The National Map, and provide basic elevation information for Earth science studies and mapping applications in the United States. Scientists and resource managers use 3DEP data for global change research, hydrologic modeling, resource monitoring, mapping and visualization, and many other applications. 3DEP data compose an elevation dataset that consists of seamless layers and a high resolution layer. Each of these layers consists of the best available raster elevation data of the conterminous United States, Alaska, Hawaii, territorial islands, Mexico and Canada. 3DEP data are updated continually as [...]",
+      "sourceId": "68afba8fd4be02645f9b2939",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/68afba8fd4be02645f9b2939",
+      "vendorMetaUrl": "https://thor-f5.er.usgs.gov/ngtoc/metadata/waf/elevation/1-3_arc-second/CA_CaliforniaGaps_B23/USGS_13_n34w119_20250826.xml",
+      "publicationDate": "2025-08-27",
+      "lastUpdated": "2026-09-24T20:14:36.180-06:00",
+      "dateCreated": "2025-08-27T20:10:23.108-06:00",
+      "sizeInBytes": 77566808,
+      "extent": "1 x 1 degree",
+      "format": "GeoTIFF",
+      "downloadURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n34w119/USGS_13_n34w119_20250826.tif",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n34w119/USGS_13_n34w119_20250826.jpg",
+      "downloadLazURL": null,
+      "urls": {
+        "TIFF": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n34w119/USGS_13_n34w119_20250826.tif"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -119.0005555565931,
+        "maxX": -117.9994444435057,
+        "minY": 32.99944444360705,
+        "maxY": 34.00055555579513
+      },
+      "bestFitIndex": 0.0,
+      "body": "This tile of the 3D Elevation Program (3DEP) seamless products is 1/3 Arc Second resolution. 3DEP data serve as the elevation layer of The National Map, and provide basic elevation information for Earth science studies and mapping applications in the United States. Scientists and resource managers use 3DEP data for global change research, hydrologic modeling, resource monitoring, mapping and visualization, and many other applications. 3DEP data compose an elevation dataset that consists of seamless layers and a high resolution layer. Each of these layers consists of the best available raster elevation data of the conterminous United States, Alaska, Hawaii, territorial islands, Mexico and Canada. 3DEP data are updated continually as new data become available. Seamless 3DEP data are derived from diverse source data that are processed to a common coordinate system and unit of vertical measure. These data are distributed in geographic coordinates in units of decimal degrees, and in conformance with the North American Datum of 1983 (NAD 83). All elevation values are in meters and, over the conterminous United States, are referenced to the North American Vertical Datum of 1988 (NAVD 88). The vertical reference will vary in other areas. Seamless 3DEP data are available nationally (except for Alaska) at resolutions of 1 arc-second (approximately 30 meters) and 1/3 arc-second (approximately 10 meters). In most of Alaska, only lower resolution source data are available. As a result, most seamless 3DEP data for Alaska are at 2 arc-second (approximately 60 meters) grid spacing. Part of Alaska is available at the 1 and 1/3 arc-second resolutions from interferometric synthetic aperture radar (ifsar) collections starting in 2010. Plans are in place for collection of statewide ifsar in Alaska. All 3DEP products are public domain.",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2026-09-24"
+    },
+    {
+      "title": "USGS 1/3 Arc Second n35w119 20250916",
+      "moreInfo": "This tile of the 3D Elevation Program (3DEP) seamless products is 1/3 Arc Second resolution. 3DEP data serve as the elevation layer of The National Map, and provide basic elevation information for Earth science studies and mapping applications in the United States. Scientists and resource managers use 3DEP data for global change research, hydrologic modeling, resource monitoring, mapping and visualization, and many other applications. 3DEP data compose an elevation dataset that consists of seamless layers and a high resolution layer. Each of these layers consists of the best available raster elevation data of the conterminous United States, Alaska, Hawaii, territorial islands, Mexico and Canada. 3DEP data are updated continually as [...]",
+      "sourceId": "68ca1888d4be0274ff4eabf8",
+      "sourceName": "ScienceBase",
+      "sourceOriginId": null,
+      "sourceOriginName": "gda",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/68ca1888d4be0274ff4eabf8",
+      "vendorMetaUrl": "https://thor-f5.er.usgs.gov/ngtoc/metadata/waf/elevation/1-3_arc-second/CA_2025LosAngelesPostWildfire_C25/USGS_13_n35w119_20250916.xml",
+      "publicationDate": "2025-09-16",
+      "lastUpdated": "2026-09-24T20:14:47.642-06:00",
+      "dateCreated": "2025-09-16T20:10:16.086-06:00",
+      "sizeInBytes": 454839551,
+      "extent": "1 x 1 degree",
+      "format": "GeoTIFF",
+      "downloadURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w119/USGS_13_n35w119_20250916.tif",
+      "downloadURLRaster": null,
+      "previewGraphicURL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w119/USGS_13_n35w119_20250916.jpg",
+      "downloadLazURL": null,
+      "urls": {
+        "TIFF": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n35w119/USGS_13_n35w119_20250916.tif"
+      },
+      "datasets": [],
+      "boundingBox": {
+        "minX": -119.0005555565931,
+        "maxX": -117.9994444435057,
+        "minY": 33.99944444340724,
+        "maxY": 35.000555556494646
+      },
+      "bestFitIndex": 0.0,
+      "body": "This tile of the 3D Elevation Program (3DEP) seamless products is 1/3 Arc Second resolution. 3DEP data serve as the elevation layer of The National Map, and provide basic elevation information for Earth science studies and mapping applications in the United States. Scientists and resource managers use 3DEP data for global change research, hydrologic modeling, resource monitoring, mapping and visualization, and many other applications. 3DEP data compose an elevation dataset that consists of seamless layers and a high resolution layer. Each of these layers consists of the best available raster elevation data of the conterminous United States, Alaska, Hawaii, territorial islands, Mexico and Canada. 3DEP data are updated continually as new data become available. Seamless 3DEP data are derived from diverse source data that are processed to a common coordinate system and unit of vertical measure. These data are distributed in geographic coordinates in units of decimal degrees, and in conformance with the North American Datum of 1983 (NAD 83). All elevation values are in meters and, over the conterminous United States, are referenced to the North American Vertical Datum of 1988 (NAVD 88). The vertical reference will vary in other areas. Seamless 3DEP data are available nationally (except for Alaska) at resolutions of 1 arc-second (approximately 30 meters) and 1/3 arc-second (approximately 10 meters). In most of Alaska, only lower resolution source data are available. As a result, most seamless 3DEP data for Alaska are at 2 arc-second (approximately 60 meters) grid spacing. Part of Alaska is available at the 1 and 1/3 arc-second resolutions from interferometric synthetic aperture radar (ifsar) collections starting in 2010. Plans are in place for collection of statewide ifsar in Alaska. All 3DEP products are public domain.",
+      "processingUrl": "processingUrl",
+      "modificationInfo": "2026-09-24"
+    }
+  ]
+}

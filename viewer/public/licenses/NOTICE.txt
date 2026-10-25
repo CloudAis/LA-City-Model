@@ -1,0 +1,6 @@
+Three.js0.179.1 and meshoptimizer1.3.0 are bundled locally under their MIT licenses.
+Project-generated PBR textures use no third-party photo textures.
+Geographic datasets retain separate terms and source dates. See Sources in the viewer and docs/stage09.md.
+© OpenStreetMap contributors, ODbL1.0: https://www.openstreetmap.org/copyright
+USGS3DEP, US CensusTIGER/Line2025, MRLC/NLCD2021, LA County/LARIAC and LA City GIS source attribution is retained.
+This local package does not grant all derived data a blanket CC0 or MIT license.

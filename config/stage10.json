@@ -1,0 +1,302 @@
+{
+  "stage": 10,
+  "version": "1.0.0",
+  "seed": 20261021,
+  "views": {
+    "city_overview": {
+      "position_m": [
+        -15145.891853225708,
+        -1882.412033794215,
+        120000
+      ],
+      "target_m": [
+        -15145.891853225708,
+        -1882.412033794215,
+        0
+      ],
+      "ortho_scale_m": 180000,
+      "focus_xy_m": [
+        -15145.891853225708,
+        -1882.412033794215
+      ],
+      "radius_m": 100000,
+      "mode": "city",
+      "samples": 8,
+      "description": "whole administrative footprint, low-density building alternative, offline review",
+      "camera_lonlat": [
+        -118.40966082942899,
+        34.020275197278444
+      ],
+      "camera_axis": "X grid east,Y grid north,Z up; meters",
+      "label_zh": "全市概览"
+    },
+    "downtown_skyline": {
+      "position_m": [
+        -1502.169007331133,
+        2445.1143824593164,
+        209.05628053509034
+      ],
+      "target_m": [
+        -850,
+        1350,
+        170
+      ],
+      "focus_xy_m": [
+        0,
+        1000
+      ],
+      "radius_m": 5500,
+      "mode": "skyline",
+      "lens_mm": 35,
+      "samples": 16,
+      "camera_lonlat": [
+        -118.2625,
+        34.0609
+      ],
+      "camera_above_sampled_ground_m": 80.0,
+      "description": "georeferenced skyline view; elevated cameras explicitly recorded; repeated small traffic fixtures omitted at this distance",
+      "camera_axis": "X grid east,Y grid north,Z up; meters",
+      "detail_radius_m": 90,
+      "label_zh": "Downtown天际线"
+    },
+    "downtown_top": {
+      "position_m": [
+        0,
+        0,
+        10000
+      ],
+      "target_m": [
+        0,
+        0,
+        90
+      ],
+      "ortho_scale_m": 5866.666666666667,
+      "focus_xy_m": [
+        0,
+        0
+      ],
+      "radius_m": 2350,
+      "mode": "downtown",
+      "samples": 12,
+      "description": "fixed4x4km working window, no relocated geography",
+      "camera_lonlat": [
+        -118.24590326933966,
+        34.03901922388071
+      ],
+      "camera_axis": "X grid east,Y grid north,Z up; meters",
+      "detail_radius_m": 100,
+      "label_zh": "Downtown街区俯视"
+    },
+    "historic_street": {
+      "position_m": [
+        -462.9881523218355,
+        769.891940115951,
+        82.32244717912755
+      ],
+      "target_m": [
+        -544.9881523218355,
+        864.891940115951,
+        90.32244717912755
+      ],
+      "focus_xy_m": [
+        -462.9881523218355,
+        769.891940115951
+      ],
+      "radius_m": 420,
+      "detail_radius_m": 150,
+      "lens_mm": 30,
+      "evidence": "existing real geographic street position; camera Z sampled from revision street-constrained grade",
+      "label_zh": "Historic Core近景"
+    },
+    "civic_street": {
+      "position_m": [
+        236.6377104325802,
+        1650.480988319032,
+        94.72618510749821
+      ],
+      "target_m": [
+        322.6173339803354,
+        1756.1935510770418,
+        102.72618510749821
+      ],
+      "focus_xy_m": [
+        236.6377104325802,
+        1650.480988319032
+      ],
+      "radius_m": 420,
+      "detail_radius_m": 150,
+      "lens_mm": 30,
+      "evidence": "existing real geographic street position; camera Z sampled from revision street-constrained grade",
+      "label_zh": "Civic Center近景"
+    },
+    "us_bank_tower": {
+      "position_m": [
+        -811.5390022992368,
+        798.6897589241662,
+        301.16952358443984
+      ],
+      "target_m": [
+        -770.0226012841333,
+        1345.4085060389448,
+        225.28408358443983
+      ],
+      "focus_xy_m": [
+        -770.0226012841333,
+        1345.4085060389448
+      ],
+      "radius_m": 1800,
+      "detail_radius_m": 110,
+      "landmark_near_m": 220,
+      "lens_mm": 38,
+      "label_zh": "典型高层近景"
+    },
+    "disney_hall": {
+      "position_m": [
+        -75.39181398561819,
+        1748.9292950930094,
+        198.2449839817219
+      ],
+      "target_m": [
+        -351.33016779929756,
+        1820.6720640289566,
+        132.9249839817219
+      ],
+      "focus_xy_m": [
+        -351.33016779929756,
+        1820.6720640289566
+      ],
+      "radius_m": 950,
+      "detail_radius_m": 110,
+      "landmark_near_m": 220,
+      "lens_mm": 38,
+      "label_zh": "Walt Disney Concert Hall"
+    },
+    "union_station": {
+      "position_m": [
+        678.5983421859842,
+        1812.3020707041517,
+        169.0153559504226
+      ],
+      "target_m": [
+        955.5807524968895,
+        1879.9019551593876,
+        104.6553559504226
+      ],
+      "focus_xy_m": [
+        955.5807524968895,
+        1879.9019551593876
+      ],
+      "radius_m": 950,
+      "detail_radius_m": 110,
+      "landmark_near_m": 220,
+      "lens_mm": 38,
+      "label_zh": "Union Station区域"
+    },
+    "griffith_observatory": {
+      "position_m": [
+        -5027.947539014366,
+        9110.337739347915,
+        426.2937234027568
+      ],
+      "target_m": [
+        -4914.26716633628,
+        8848.86924627892,
+        355.6815634027568
+      ],
+      "focus_xy_m": [
+        -4914.26716633628,
+        8848.86924627892
+      ],
+      "radius_m": 950,
+      "detail_radius_m": 110,
+      "landmark_near_m": 220,
+      "lens_mm": 38,
+      "label_zh": "Griffith Observatory区域"
+    },
+    "hollywood_sign": {
+      "position_m": [
+        -6766.663840969456,
+        10427.067304505888,
+        499.638080808522
+      ],
+      "target_m": [
+        -6856.663840969456,
+        10627.067304505888,
+        489.124480808522
+      ],
+      "focus_xy_m": [
+        -6856.663840969456,
+        10627.067304505888
+      ],
+      "radius_m": 950,
+      "detail_radius_m": 110,
+      "landmark_near_m": 220,
+      "lens_mm": 38,
+      "label_zh": "Hollywood Sign区域"
+    },
+    "freeway_interchange": {
+      "position_m": [
+        -1336.2784630521674,
+        1772.52061062046,
+        700
+      ],
+      "target_m": [
+        -236.2784630521674,
+        2622.52061062046,
+        120
+      ],
+      "focus_xy_m": [
+        -236.2784630521674,
+        2622.52061062046
+      ],
+      "radius_m": 1800,
+      "detail_radius_m": 0,
+      "lens_mm": 42,
+      "label_zh": "US101与I110立交区域，源高程部分推断",
+      "evidence": "Exact source04 recorded US101/CA110 crossing region; clearance inferred"
+    },
+    "peripheral_valley": {
+      "position_m": [
+        -19857.236689902667,
+        16861.99913743185,
+        1650
+      ],
+      "target_m": [
+        -22257.236689902667,
+        19261.99913743185,
+        245
+      ],
+      "focus_xy_m": [
+        -22257.236689902667,
+        19261.99913743185
+      ],
+      "radius_m": 6500,
+      "detail_radius_m": 0,
+      "lens_mm": 35,
+      "label_zh": "Van Nuys外围城市环境，洛杉矶市内",
+      "reference_lonlat": [
+        -118.49,
+        34.21
+      ]
+    }
+  },
+  "lights": [
+    "clear_day",
+    "golden_hour",
+    "blue_hour",
+    "night"
+  ],
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "samples": 16,
+    "engine": "CYCLES",
+    "threads": 4,
+    "denoising": false
+  },
+  "local_delivery": "outputs/LA_Delivery",
+  "native_1080p_30fps_required": false,
+  "final_software_medium_fps_target": 15,
+  "min_free_disk_gib": 0.75,
+  "license_policy": "Private local handoff includes locally obtained dependencies; public redistributable archive excludes unconfirmed county/city/LA Times derived city data and all research images."
+}

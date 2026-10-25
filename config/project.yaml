@@ -1,0 +1,184 @@
+project:
+  name: Los Angeles / Geographic City Exterior
+  stage: 10
+  seed: 20261021
+  timezone: Asia/Singapore
+  scope_version: 2
+coordinates:
+  exchange_crs: EPSG:4326
+  metric_crs: EPSG:32611
+  axis:
+    x: grid_east
+    y: grid_north
+    z: up
+  units: meters
+  origin: downtown_polygon_centroid
+  vertical_datum: NAVD88_for_stage02_USGS_ground_only
+  stage01_vertical_datum: synthetic_z0_not_elevation
+  source_building_ELEV_vertical_datum: unknown_do_not_combine
+geography:
+  city:
+    geoid: '0644000'
+    source: data/processed/stage02/city_boundary_2025.geojson
+    vintage: 2025
+    legal_reference_date: '2025-01-01'
+    precision: full_resolution_TIGER_not_cadastral
+  historical_stage01_city:
+    source: data/processed/scopes.geojson
+    vintage: 2020
+    scale_denominator: 500000
+    frozen: true
+  downtown:
+    source: la_neighborhoods.geojson
+    name: Downtown
+    center_method: projected_polygon_centroid
+  focus:
+    width_m: 4000
+    height_m: 4000
+    rotation_degrees_from_grid_north: 0
+  closeups:
+  - id: historic_core
+    label: Historic Core / Broadway mixed-use blocks
+    center_lon: -118.2507
+    center_lat: 34.0467
+    width_m: 350
+    height_m: 400
+  - id: civic_center
+    label: Civic Center / civic and institutional blocks
+    center_lon: -118.2438
+    center_lat: 34.0548
+    width_m: 350
+    height_m: 400
+  backgrounds:
+  - name: Santa Monica
+    geoid: '0670000'
+    enabled: false
+    relation: separate_incorporated_city
+  - name: Beverly Hills
+    geoid: 0606308
+    enabled: false
+    relation: separate_incorporated_city
+  independent_landmark_regions_file: data/processed/stage02/independent_landmark_regions.geojson
+  independent_landmark_regions:
+  - Griffith Observatory
+  - Hollywood Sign
+  - Dodger Stadium
+  - Los Angeles Memorial Coliseum
+  - Watts Towers
+  stage06_landmark_regions_file: data/processed/stage06/landmark_regions_wgs84.geojson
+modeling:
+  visual_levels:
+  - city_overview
+  - block_detail
+  - closeup_detail
+  - landmark_detail
+  data_classes:
+  - raw_observed
+  - processed_observed
+  - inferred
+  - artistic_synthetic
+  exterior_only: true
+  runtime_lod:
+    mode: stage10_distance_per_quality_with_hysteresis
+    levels:
+    - name: LOD0
+      min_distance_m: 0
+      max_distance_m: 80
+      target_triangle_ratio: 1.0
+    - name: LOD1
+      min_distance_m: 80
+      max_distance_m: 300
+      target_triangle_ratio: 0.5
+    - name: LOD2
+      min_distance_m: 300
+      max_distance_m: 1200
+      target_triangle_ratio: 0.15
+    - name: LOD3
+      min_distance_m: 1200
+      max_distance_m: null
+      target_triangle_ratio: 0.03
+    hysteresis_fraction: 0.15
+    implemented: true
+    runtime_config: config/stage10_runtime.json
+    implementation: outputs/LA_Delivery/viewer/source/src/resources.ts
+    original_stage01_distance_levels: historical_plan_runtime_uses_stage09_quality_thresholds
+quality:
+  default: medium
+  budget_status: proposed_limits_not_measured_realtime_capacity
+  low:
+    texture_max_px: 1024
+    visible_triangles_max: 500000
+    texture_resident_mib: 128
+    shadow_map_px: 1024
+    shadow_cascades: 2
+    shadow_distance_m: 100
+    detailed_load_radius_m: 500
+    overview_load_radius_m: 6000
+    loaded_tile_cap: 36
+    ram_budget_mib: 2048
+    browser_cache_mib: 64
+    disk_cache_gib: 2
+    render:
+      width: 768
+      height: 576
+      samples: 16
+  medium:
+    texture_max_px: 2048
+    visible_triangles_max: 1500000
+    texture_resident_mib: 384
+    shadow_map_px: 2048
+    shadow_cascades: 3
+    shadow_distance_m: 250
+    detailed_load_radius_m: 1000
+    overview_load_radius_m: 12000
+    loaded_tile_cap: 100
+    ram_budget_mib: 4096
+    browser_cache_mib: 192
+    disk_cache_gib: 4
+    render:
+      width: 1024
+      height: 768
+      samples: 32
+  high:
+    texture_max_px: 4096
+    visible_triangles_max: 4000000
+    texture_resident_mib: 1024
+    shadow_map_px: 4096
+    shadow_cascades: 4
+    shadow_distance_m: 500
+    detailed_load_radius_m: 1500
+    overview_load_radius_m: 20000
+    loaded_tile_cap: 225
+    ram_budget_mib: 8192
+    browser_cache_mib: 512
+    disk_cache_gib: 6
+    render:
+      width: 1600
+      height: 1200
+      samples: 64
+build:
+  blender_executable: /usr/bin/blender
+  device: CPU
+  threads: 4
+  denoising: false
+  glb_tile_size_m: 250
+  memory_headroom_fraction: 0.25
+  disk_headroom_gib: 0.75
+  incremental: content_hash
+  preserve_prior_outputs: true
+calibration:
+  building_dimensions_m:
+  - 12
+  - 18
+  - 24
+  ground_dimensions_m:
+  - 60
+  - 50
+  - 0.2
+  ruler_length_m: 20
+  ruler_tick_m: 1
+  axis_length_m: 14
+  measurement_tolerance_m: 0.0001
+  triangle_limit: 50000
+  all_geometry_class: artistic_synthetic
+  represents_real_la_building: false

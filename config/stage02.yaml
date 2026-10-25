@@ -1,0 +1,43 @@
+stage: 2
+working_crs: EPSG:32611
+origin_file: data/processed/origin.json
+scope_file: data/processed/scopes.geojson
+sample_region: historic_core
+primary_region: downtown
+administrative_boundary:
+  selected_source: census_places_2025
+  legal_reference_date: '2025-01-01'
+  reference_date_evidence: Census TIGER/Line 2025 Technical Documentation section 3.2
+  current_2026_verified: false
+tile_size_m: 1000
+model_tile_size_m: 250
+request:
+  timeout_seconds: 40
+  retries: 3
+  retry_statuses: [429, 500, 502, 503, 504]
+  page_size: 500
+  max_json_mib: 32
+  max_download_mib: 1024
+  max_total_download_gib: 6
+  disk_headroom_gib: 8
+  cache: true
+  resume: true
+osm:
+  endpoint: https://overpass-api.de/api/interpreter
+  query_timeout_seconds: 25
+  include: [building, building:part, highway, railway, aeroway, harbour, waterway, natural, leisure, landuse, historic, tourism]
+  tile_download_m: 1000
+  no_standard_tile_downloads: true
+  attribution: '© OpenStreetMap contributors; ODbL 1.0'
+validation:
+  max_building_height_m: 1000
+  max_building_levels: 200
+  min_building_height_m: 0
+  minimum_area_m2: 0.01
+  duplicate_overlap_threshold: 0.8
+  allow_unknown_height: true
+  allow_synthetic_terrain_as_observed: false
+time_policy:
+  snapshot_date: null
+  mode: mixed_vintage_explicit_per_layer
+  do_not_use_item_modified_as_acquisition_year: true

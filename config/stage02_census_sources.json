@@ -1,0 +1,10 @@
+{
+  "ca_places_2025.zip": "https://www2.census.gov/geo/tiger/TIGER2025/PLACE/tl_2025_06_place.zip",
+  "la_roads_2025.zip": "https://www2.census.gov/geo/tiger/TIGER2025/ROADS/tl_2025_06037_roads.zip",
+  "la_area_water_2025.zip": "https://www2.census.gov/geo/tiger/TIGER2025/AREAWATER/tl_2025_06037_areawater.zip",
+  "la_linear_water_2025.zip": "https://www2.census.gov/geo/tiger/TIGER2025/LINEARWATER/tl_2025_06037_linearwater.zip",
+  "ca_area_landmarks_2025.zip": "https://www2.census.gov/geo/tiger/TIGER2025/AREALM/tl_2025_06_arealm.zip",
+  "ca_point_landmarks_2025.zip": "https://www2.census.gov/geo/tiger/TIGER2025/POINTLM/tl_2025_06_pointlm.zip",
+  "us_rails_2025.zip": "https://www2.census.gov/geo/tiger/TIGER2025/RAILS/tl_2025_us_rails.zip",
+  "us_coastline_2025.zip": "https://www2.census.gov/geo/tiger/TIGER2025/COASTLINE/tl_2025_us_coastline.zip"
+}

@@ -1,0 +1,136 @@
+{
+  "historic_core_street": {
+    "position_m": [
+      -462.9881523218355,
+      769.891940115951,
+      82.10483701214679
+    ],
+    "target_m": [
+      -544.9881523218355,
+      864.891940115951,
+      94.47772818939441
+    ],
+    "focus_xy_m": [
+      -462.9881523218355,
+      769.891940115951
+    ],
+    "radius_m": 450,
+    "lens_mm": 28,
+    "camera_lonlat": [
+      -118.25101983345672,
+      34.04591018580504
+    ],
+    "exposure": 1.0,
+    "evidence": "inherited real-position street camera; unchanged geographic layout; generic facade details inferred"
+  },
+  "historic_core_entry": {
+    "position_m": [
+      -426.97257217273034,
+      816.955986554312,
+      82.3415791075121
+    ],
+    "target_m": [
+      -435.8772710117428,
+      820.2280407388404,
+      83.66609411531833
+    ],
+    "focus_xy_m": [
+      -435.8772710117428,
+      820.2280407388404
+    ],
+    "radius_m": 200,
+    "lens_mm": 30,
+    "exposure": 0.9,
+    "target_uid": "lariac6:485496839514",
+    "camera_above_working_ground_m": 1.7,
+    "evidence": "inferred entrance vicinity; actual geographic XY; floor grading is explicitly visual approximation",
+    "camera_collision_check": "Source footprints spatial query: camera and sight line clear of other buildings"
+  },
+  "historic_core_top": {
+    "position_m": [
+      -432.3949595,
+      857.11258,
+      1200
+    ],
+    "target_m": [
+      -432.3949595,
+      857.11258,
+      90
+    ],
+    "focus_xy_m": [
+      -432.3949595,
+      857.11258
+    ],
+    "radius_m": 500,
+    "ortho_scale_m": 620,
+    "exposure": 0.4,
+    "evidence": "georeferenced orthographic top inspection"
+  },
+  "civic_center_street": {
+    "position_m": [
+      236.6377104325802,
+      1650.480988319032,
+      94.44078684436617
+    ],
+    "target_m": [
+      322.6173339803354,
+      1756.1935510770418,
+      101.74078684436617
+    ],
+    "focus_xy_m": [
+      236.6377104325802,
+      1650.480988319032
+    ],
+    "radius_m": 450,
+    "lens_mm": 28,
+    "camera_lonlat": [
+      -118.24355750000001,
+      34.05392709999999
+    ],
+    "exposure": 1.0,
+    "evidence": "Actual OSM way1127429323 North Spring Street centreline node; fixed city coordinates; daytime street-centre inspection camera, not claimed pedestrian sidewalk",
+    "camera_above_working_ground_m": 1.7
+  },
+  "civic_center_entry": {
+    "position_m": [
+      85.27061025177213,
+      1730.2278521701473,
+      99.00289959690326
+    ],
+    "target_m": [
+      81.54782490813162,
+      1719.1309666032337,
+      100.06367262016028
+    ],
+    "focus_xy_m": [
+      81.54782490813162,
+      1719.1309666032337
+    ],
+    "radius_m": 200,
+    "lens_mm": 30,
+    "exposure": 0.9,
+    "target_uid": "lariac6:487188842314",
+    "camera_above_working_ground_m": 1.7,
+    "evidence": "inferred entrance vicinity; actual geographic XY; floor grading is explicitly visual approximation"
+  },
+  "civic_center_top": {
+    "position_m": [
+      215.43239,
+      1747.54794,
+      1200
+    ],
+    "target_m": [
+      215.43239,
+      1747.54794,
+      90
+    ],
+    "focus_xy_m": [
+      215.43239,
+      1747.54794
+    ],
+    "radius_m": 500,
+    "ortho_scale_m": 620,
+    "exposure": 0.4,
+    "evidence": "georeferenced orthographic top inspection"
+  }
+}

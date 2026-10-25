@@ -1,0 +1,56 @@
+stage: 4
+build_version: la_transport_v4
+working_crs: EPSG:32611
+origin_file: data/processed/origin.json
+base_scene: scenes/stage03_city_medium.blend
+osm_pbf: data/raw/stage04/osm/california-20261021.osm.pbf
+seed: 20261021
+tile_size_m: 1000
+quality:
+  low: {city_sample_m: 35, downtown_sample_m: 8, render_width: 1024, samples: 8}
+  medium: {city_sample_m: 25, downtown_sample_m: 5, render_width: 1536, samples: 16}
+  high: {city_sample_m: 15, downtown_sample_m: 3, render_width: 2048, samples: 24}
+# Width means paved carriageway, not total right of way. All defaults are inferred.
+road_classes:
+  motorway: {lanes_two_way: 6, lanes_one_way: 3, lane_m: 3.6, shoulder_m: 2.4, sidewalk_m: 0, median_m: 1.0, max_grade: 0.08}
+  trunk: {lanes_two_way: 4, lanes_one_way: 2, lane_m: 3.5, shoulder_m: 1.5, sidewalk_m: 0, median_m: 0.8, max_grade: 0.10}
+  ramp: {lanes_two_way: 1, lanes_one_way: 1, lane_m: 3.5, shoulder_m: 1.1, sidewalk_m: 0, median_m: 0, max_grade: 0.10}
+  primary: {lanes_two_way: 4, lanes_one_way: 3, lane_m: 3.3, shoulder_m: 0.3, sidewalk_m: 2.4, median_m: 0, max_grade: 0.12}
+  secondary: {lanes_two_way: 4, lanes_one_way: 2, lane_m: 3.2, shoulder_m: 0.25, sidewalk_m: 2.1, median_m: 0, max_grade: 0.15}
+  tertiary: {lanes_two_way: 2, lanes_one_way: 2, lane_m: 3.1, shoulder_m: 0.2, sidewalk_m: 1.8, median_m: 0, max_grade: 0.18}
+  residential: {lanes_two_way: 2, lanes_one_way: 1, lane_m: 3.0, shoulder_m: 0.25, sidewalk_m: 1.5, median_m: 0, max_grade: 0.22}
+  service: {lanes_two_way: 1, lanes_one_way: 1, lane_m: 3.0, shoulder_m: 0.1, sidewalk_m: 0, median_m: 0, max_grade: 0.22}
+  parking_aisle: {lanes_two_way: 1, lanes_one_way: 1, lane_m: 3.2, shoulder_m: 0, sidewalk_m: 0, median_m: 0, max_grade: 0.22}
+  pedestrian: {lanes_two_way: 1, lanes_one_way: 1, lane_m: 2.0, shoulder_m: 0, sidewalk_m: 0, median_m: 0, max_grade: 0.30}
+  cycleway: {lanes_two_way: 1, lanes_one_way: 1, lane_m: 2.4, shoulder_m: 0, sidewalk_m: 0, median_m: 0, max_grade: 0.25}
+vertical:
+  datum: NAVD88_ground_plus_explicit_inferred_structure_offsets
+  surface_offset_m: 0.06
+  clearance_m: 5.2
+  bridge_deck_thickness_m: 0.65
+  tunnel_depth_m: 7.0
+  transition_length_m: 120
+  sidewalk_height_m: 0.15
+  road_crown_crossfall: 0.015
+  exact_structure_survey_available: false
+markings:
+  normal_line_m: 0.12
+  stop_line_m: 0.45
+  crosswalk_width_m: 3.0
+  stripe_width_m: 0.4
+  stripe_gap_m: 0.6
+  all_placements_inferred_except_observed_tagged_nodes: true
+rail:
+  standard_gauge_m: 1.435
+  default_corridor_width_m: 3.6
+  station_platforms_only_from_actual_OSM_geometry: true
+validation:
+  xy_match_tolerance_m: 0.005
+  tile_seam_tolerance_m: 0.0001
+  bridge_clearance_warning_m: 4.5
+  flag_unresolved_crossings: true
+  never_connect_planar_crossings_without_shared_osm_node: true
+build:
+  blender_executable: /usr/bin/blender
+  threads: 4
+  denoising: false

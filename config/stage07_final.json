@@ -1,0 +1,84 @@
+{
+  "stage": 7,
+  "revision": "near_streets_r2",
+  "source_scene": "scenes/stage07_city_medium.blend",
+  "output_scene": "scenes/stage07_final.blend",
+  "seed": 20261021,
+  "quality": "medium",
+  "regions": [
+    "historic_core",
+    "civic_center"
+  ],
+  "linked_unchanged_city_meshes": true,
+  "wall_thickness_m": 0.28,
+  "reveal_depth_m": 0.17,
+  "ordinary_estimated_storey_m": 3.7,
+  "max_windows_per_building": 5000,
+  "door_width_m": 2.0,
+  "door_height_m": 2.7,
+  "neutral_entry_rise_m": 0.15,
+  "curb_height_m": 0.15,
+  "ground_road_constraint_band_m": 10.0,
+  "ground_transition_m": 50.0,
+  "max_visible_triangles": 1500000,
+  "render": {
+    "width": 1280,
+    "height": 960,
+    "samples": 48,
+    "threads": 4,
+    "quality_note": "CPU medium final inspection previews; saved authoring scene retains its64-sample1440x1080 default. No denoiser in installed Blender build."
+  },
+  "skybridge": {
+    "osm_way": "425993596",
+    "source_min_height_m": 6.0,
+    "inferred_enclosure_height_m": 3.6,
+    "replaces": [
+      1005397,
+      1052445,
+      1056567
+    ]
+  },
+  "research_profiles": {
+    "960933": {
+      "id": "alexandria",
+      "front_floors": 8,
+      "rear_floors": 12,
+      "inferred_front_height_m": 34.6,
+      "reference": "data/raw/stage07/research/alexandria_hotel/reference_2.jpg"
+    },
+    "961984": {
+      "id": "arcade",
+      "tower_floors": 12,
+      "arcade_floors": 3,
+      "inferred_arcade_height_m": 12.3,
+      "reference": "data/raw/stage07/research/spring_arcade/reference_2.jpg"
+    },
+    "974288": {
+      "id": "times",
+      "reference": "data/raw/stage07/research/la_times/reference_1.jpg"
+    },
+    "1065462": {
+      "id": "records",
+      "reference": "data/raw/stage07/research/hall_records/supplement_2.jpg"
+    },
+    "1080188": {
+      "id": "theatre",
+      "reference": "data/raw/stage07/research/la_theatre/reference_1.jpg"
+    }
+  },
+  "facade_edge_cleanup_indices": [
+    961010,
+    961103,
+    962938,
+    964544,
+    967433,
+    968803,
+    968883,
+    969083,
+    969764,
+    969822,
+    1042507,
+    1080101,
+    1080137
+  ]
+}

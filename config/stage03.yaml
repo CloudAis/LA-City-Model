@@ -1,0 +1,71 @@
+stage: 3
+build_version: la_ground_v3
+working_crs: EPSG:32611
+exchange_crs: EPSG:4326
+origin_file: data/processed/origin.json
+scope_file: data/processed/scopes.geojson
+city_boundary: data/processed/stage02/city_boundary_2025.geojson
+tile_size_m: 1000
+vertical:
+  datum: NAVD88
+  unit: meter
+  z_offset_m: 0
+  exaggeration: 1
+  ocean_reference_z_m: 0
+  ocean_reference_status: project_display_level_on_NAVD88_axis_not_verified_tidal_datum
+terrain:
+  city_dem: data/processed/stage02/city_10m_dem_navd88_m.tif
+  downtown_dem: data/processed/stage02/downtown_1m_dem_navd88_m.tif
+  fine_transition_band_m: 100
+  nodata_max_nearest_repair_m: 30
+  valid_height_range_m: [-500, 5000]
+  min_triangle_plan_area_m2: 0.000001
+  vertex_key_decimals: 6
+  baked_lod_steps_m: [100, 250]
+  preserve_finest_tile_boundary_all_lods: true
+  runtime_switching_implemented: false
+quality:
+  low: {city_step_m: 100, downtown_step_m: 20, closeup_step_m: 10, river_step_m: 20, render_samples: 8, render_width: 1024}
+  medium: {city_step_m: 50, downtown_step_m: 10, closeup_step_m: 5, river_step_m: 10, render_samples: 12, render_width: 1536}
+  high: {city_step_m: 40, downtown_step_m: 5, closeup_step_m: 1, river_step_m: 10, render_samples: 24, render_width: 2048}
+water:
+  polygon_source: data/processed/stage02/water_area.geojson
+  centerline_source: data/processed/stage02/waterway.geojson
+  coastline_source: data/processed/stage02/coastline.geojson
+  maximum_level_fit_spread_m: 1
+  display_offset_m: 0.03
+  river_water_extent_status: census_hydrographic_extent_not_current_wetted_flow_extent
+  no_unverified_channel_width_or_bridge_deck: true
+surface:
+  landcover: data/processed/stage02/landcover_nlcd2021_30m.tif
+  facilities: data/processed/stage02/facility_area.geojson
+  class_basis: NLCD2021_cover_plus_explicit_official_facility_overrides
+  beach_inference_max_coast_distance_m: 120
+  colors:
+    unknown: [0.30, 0.30, 0.32, 1]
+    built: [0.48, 0.50, 0.51, 1]
+    park_green: [0.22, 0.37, 0.22, 1]
+    dry_slope: [0.49, 0.40, 0.25, 1]
+    barren: [0.60, 0.51, 0.37, 1]
+    industrial: [0.39, 0.42, 0.47, 1]
+    beach: [0.73, 0.65, 0.44, 1]
+    airport: [0.39, 0.44, 0.49, 1]
+    port: [0.33, 0.42, 0.46, 1]
+    forest: [0.17, 0.29, 0.20, 1]
+    wetland: [0.24, 0.40, 0.32, 1]
+    inland_water: [0.08, 0.28, 0.39, 1]
+    ocean: [0.055, 0.18, 0.28, 1]
+foundation:
+  enabled: true
+  bottom_z_m: -50
+  data_class: artistic_synthetic_display_plinth_not_geology_or_bathymetry
+validation:
+  horizontal_roundtrip_tolerance_m: 0.001
+  seam_height_tolerance_m: 0.0001
+  blender_position_tolerance_m: 0.005
+  maximum_scene_coordinate_abs_m: 100000
+build:
+  blender_executable: /usr/bin/blender
+  threads: 4
+  disk_headroom_gib: 8
+  denoising: false

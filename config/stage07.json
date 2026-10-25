@@ -1,0 +1,26 @@
+{
+  "stage":7,
+  "seed":20261021,
+  "source_scene":"scenes/stage06_city_medium.blend",
+  "output_scene":"scenes/stage07_city_medium.blend",
+  "regions":["historic_core","civic_center"],
+  "scope_source":"data/processed/scopes.geojson",
+  "ordinary_selection":"active stage05 buildings visual=2; exclude all stage06 replaced proxy IDs",
+  "units":"metres",
+  "vertical_datum":"NAVD88 terrain only; source ele/ELEV not used",
+  "entry":{"max_existing_rise_before_visual_floor_correction_m":1.5,"target_corrected_rise_m":0.6,"max_floor_lowering_m":6.5,"step_max_rise_m":0.17,"tread_m":0.30,"width_m":2.0,"source_footprint_xy_unchanged":true,"all_floor_corrections_inferred":true},
+  "grading":{"footprint_buffer_m":1.5,"transition_m":6.0,"preserve_tile_boundaries":true,"source_dem_preserved":true},
+  "paving":{"tile_m":0.6,"joint_m":0.006,"bump_m":0.004,"maximum_color_variation":0.05},
+  "trees":{"unknown_height_m":7.0,"unknown_crown_radius_m":2.4,"palm_height_m":10.0,"source_positions_only":true,"height_inference_label_required":true,"deterministic_rotation_only":true},
+  "asset_modules":["window_metal_reveal","window_masonry_reveal","entry_glazed_double","canopy_brackets","handrail","tree_broadleaf","tree_palm","street_lamp","bench","waste_bin","hydrant","bollard"],
+  "closeup_render":{"width":1440,"height":1080,"samples":32,"threads":4,"device":"CPU","denoising":false},
+  "static_visible_triangle_limit":1500000,
+  "runtime_switching_or_streaming":false,
+  "appearance_research":[
+    {"id":"alexandria_hotel","uid":"lariac6:485890839707","name":"Alexandria Hotel","official_page":"https://www.laconservancy.org/learn/historic-places/alexandria-hotel/","photo_query":"intitle:\"Alexandria Hotel\" \"Los Angeles\""},
+    {"id":"spring_arcade","uid":"lariac6:485496839514","name":"Spring Arcade Building","official_page":"https://www.laconservancy.org/learn/historic-places/spring-arcade-building/","photo_query":"\"Spring Arcade Building\""},
+    {"id":"la_times","uid":"lariac6:487402841679","name":"Los Angeles Times Building","official_page":"https://www.laconservancy.org/learn/historic-places/los-angeles-times-building/","photo_query":"intitle:\"Los Angeles Times Building\""},
+    {"id":"hall_records","uid":"lariac6:2014092851370000","name":"Los Angeles County Hall of Records","official_page":"https://www.laconservancy.org/learn/historic-places/hall-of-records/","photo_query":"\"Los Angeles\" \"Hall of Records\""},
+    {"id":"la_theatre","uid":"lariac6:202000039262","name":"Los Angeles Theatre","official_page":"https://www.laconservancy.org/learn/historic-places/los-angeles-theatre/","photo_query":"intitle:\"Los Angeles Theatre\" exterior"}
+  ]
+}

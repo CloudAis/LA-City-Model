@@ -1,0 +1,105 @@
+{
+  "stage": 9,
+  "seed": 20261021,
+  "source_scene": "scenes/stage08_city_medium.blend",
+  "tile_size_m": 1000,
+  "texture_export_px": 512,
+  "far_building_min_height_m": 35,
+  "far_building_min_source_triangles": 160,
+  "quantization": "tile-local unsigned16 positions; signed8 normals; meshopt lossless after quantization",
+  "city_overview": {
+    "position_m": [
+      -18000,
+      -30000,
+      95000
+    ],
+    "target_m": [
+      -18000,
+      1000,
+      100
+    ]
+  },
+  "qualities": {
+    "low": {
+      "pixel_ratio": 0.4,
+      "triangles": 90000,
+      "tile_cap": 48,
+      "cache_mib": 64,
+      "load_radius_m": 1400,
+      "near_m": 20,
+      "mid_m": 350,
+      "texture_px": 256,
+      "shadows": false
+    },
+    "medium": {
+      "pixel_ratio": 0.5,
+      "triangles": 150000,
+      "tile_cap": 70,
+      "cache_mib": 192,
+      "load_radius_m": 1800,
+      "near_m": 45,
+      "mid_m": 650,
+      "texture_px": 512,
+      "shadows": false
+    },
+    "high": {
+      "pixel_ratio": 1,
+      "triangles": 1500000,
+      "tile_cap": 140,
+      "cache_mib": 384,
+      "load_radius_m": 4500,
+      "near_m": 260,
+      "mid_m": 1800,
+      "texture_px": 512,
+      "shadows": true
+    }
+  },
+  "loading": {
+    "concurrency": 3,
+    "max_retries": 2,
+    "retry_delay_ms": 350,
+    "unload_after_s": 12,
+    "origin_rebase_m": 2000,
+    "lod_hysteresis": 0.15,
+    "prefetch_budget_fraction": 0.1
+  },
+  "performance_test": {
+    "viewport_px": [
+      1920,
+      1080
+    ],
+    "initial_target_fps": 30,
+    "route_seconds": 36,
+    "repeat_cycles": 3,
+    "browser": "installed Chromium / explicit software WebGL2"
+  },
+  "limits": [
+    "Inherited geometry, terrain interfaces, approximate façades and mixed source years remain.",
+    "Far LOD omits small buildings for overview only; all retained source buildings are available in nearer tile LOD1.",
+    "No hardware GPU or VRAM measurement is available; actual software-renderer results are reported without extrapolation."
+  ],
+  "performance_adjustment": {
+    "initial_1080p_software_fps": {
+      "overview": 1.9356,
+      "historic_street": 1.6414
+    },
+    "after_transmission_and_depth_pass_fps": {
+      "overview": 8.9147,
+      "historic_street": 4.542
+    },
+    "reason": "Measured SwiftShader CPU raster and geometry/overdraw bottleneck; reduce medium internal render resolution to1152x648 at1080p viewport, use180k triangle cap and actual intermediate façades/terrain LODs. Native authoring and high quality retain original geometry.",
+    "not_a_30fps_claim": true,
+    "software_medium_target": {
+      "viewport_px": [
+        1920,
+        1080
+      ],
+      "internal_render_px": [
+        960,
+        540
+      ],
+      "target_fps": 15,
+      "reason": "Native1080p30FPS not reached on this CPU-only software device; retain full local data and high mode, but reduce medium pixel cost and stream close-ups per whole building."
+    }
+  }
+}

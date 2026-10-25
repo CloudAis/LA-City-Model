@@ -1,0 +1,306 @@
+{
+  "stage": 8,
+  "schema_version": 1,
+  "prepared_before_stage07_acceptance": true,
+  "reference_location": {
+    "longitude_deg": -118.24590326933966,
+    "latitude_deg": 34.03901922388071,
+    "origin_source": "data/processed/origin.json",
+    "horizontal_crs": "EPSG:32611",
+    "axes": "X grid east, Y grid north, Z up; metres",
+    "meridian_convergence_deg": -0.6974800643418578,
+    "grid_azimuth_rule": "true azimuth minus meridian convergence",
+    "true_north_projected_grid_azimuth_deg": 0.6974890739244769
+  },
+  "solar_method": {
+    "algorithm": "NOAA solar calculator / Meeus Julian-century equations",
+    "reference_url": "https://gml.noaa.gov/grad/solcalc/calcdetails.html",
+    "time_basis": "aware America/Los_Angeles converted to UTC; system timezone not used",
+    "altitude": "geometric altitude drives Sun orientation; apparent standard-atmosphere estimate recorded separately",
+    "accuracy": "analytical approximation; no observed Sun comparison, no weather or photometric calibration; not a survey-accuracy claim",
+    "geographic_extent": "single Downtown reference Sun direction shared by city; no per-tile ephemeris required at this visual scale"
+  },
+  "presets": {
+    "clear_day": {
+      "wall_time": "2025-09-21T13:00:00",
+      "label_zh": "晴朗白天",
+      "sun_energy": 3.0,
+      "sun_color_linear_rgb": [
+        1.0,
+        0.97,
+        0.91
+      ],
+      "sun_angle_deg": 0.526,
+      "world_model": "nishita",
+      "world_strength": 0.28,
+      "exposure_stops": 0.0,
+      "artificial_lights_enabled": false,
+      "solar": {
+        "local_datetime": "2025-09-21T13:00:00-07:00",
+        "wall_time": "2025-09-21T13:00:00",
+        "timezone": "America/Los_Angeles",
+        "fold": 0,
+        "utc_datetime": "2025-09-21T20:00:00+00:00",
+        "utc_offset_hours": -7.0,
+        "julian_date_utc": 2460940.3333333335,
+        "latitude_deg": 34.03901922388071,
+        "longitude_deg": -118.24590326933966,
+        "azimuth_true_north_clockwise_deg": 186.35159340711004,
+        "altitude_geometric_deg": 56.16167274755683,
+        "altitude_apparent_standard_atmosphere_deg": 56.17248657739631,
+        "declination_deg": 0.3629802714131045,
+        "equation_of_time_minutes": 7.111457260203267,
+        "hour_angle_deg": 3.5319610457111423
+      },
+      "azimuth_grid_north_clockwise_deg": 187.0490734714519,
+      "sun_direction_towards_sun_grid_xyz": [
+        -0.0683364701515608,
+        -0.5526423543531593,
+        0.830612156798961
+      ],
+      "sun_ray_direction_grid_xyz": [
+        0.0683364701515608,
+        0.5526423543531593,
+        -0.830612156798961
+      ],
+      "sun_rotation_euler_xyz_degrees": [
+        33.83832725244317,
+        0.0,
+        -7.049073471451891
+      ],
+      "solar_altitude_used_for_rotation": "geometric_no_refraction",
+      "sun_below_horizon": false,
+      "lighting_parameter_evidence": "authored plausible rendering parameters; not measured solar irradiance, sky luminance, or weather"
+    },
+    "golden_hour": {
+      "wall_time": "2025-09-21T18:20:00",
+      "label_zh": "日落前暖光",
+      "sun_energy": 1.8,
+      "sun_color_linear_rgb": [
+        1.0,
+        0.65,
+        0.35
+      ],
+      "sun_angle_deg": 0.526,
+      "world_model": "nishita",
+      "world_strength": 0.2,
+      "exposure_stops": 0.2,
+      "artificial_lights_enabled": false,
+      "solar": {
+        "local_datetime": "2025-09-21T18:20:00-07:00",
+        "wall_time": "2025-09-21T18:20:00",
+        "timezone": "America/Los_Angeles",
+        "fold": 0,
+        "utc_datetime": "2025-09-22T01:20:00+00:00",
+        "utc_offset_hours": -7.0,
+        "julian_date_utc": 2460940.5555555555,
+        "latitude_deg": 34.03901922388071,
+        "longitude_deg": -118.24590326933966,
+        "azimuth_true_north_clockwise_deg": 266.60972189078336,
+        "altitude_geometric_deg": 5.495388934309139,
+        "altitude_apparent_standard_atmosphere_deg": 5.644201951293427,
+        "declination_deg": 0.27653889756308014,
+        "equation_of_time_minutes": 7.190014037936448,
+        "hour_angle_deg": 83.55160024014447
+      },
+      "azimuth_grid_north_clockwise_deg": 267.3072019551252,
+      "sun_direction_towards_sun_grid_xyz": [
+        -0.9943047719522947,
+        -0.04676496357682379,
+        0.09576564443762373
+      ],
+      "sun_ray_direction_grid_xyz": [
+        0.9943047719522947,
+        0.04676496357682379,
+        -0.09576564443762373
+      ],
+      "sun_rotation_euler_xyz_degrees": [
+        84.50461106569087,
+        0.0,
+        -87.30720195512521
+      ],
+      "solar_altitude_used_for_rotation": "geometric_no_refraction",
+      "sun_below_horizon": false,
+      "lighting_parameter_evidence": "authored plausible rendering parameters; not measured solar irradiance, sky luminance, or weather"
+    },
+    "blue_hour": {
+      "wall_time": "2025-09-21T19:20:00",
+      "label_zh": "蓝调时刻",
+      "sun_energy": 0.0,
+      "sun_color_linear_rgb": [
+        1.0,
+        0.5,
+        0.25
+      ],
+      "sun_angle_deg": 0.526,
+      "world_model": "authored_twilight_constant",
+      "world_color_linear_rgb": [
+        0.075,
+        0.13,
+        0.28
+      ],
+      "world_strength": 0.32,
+      "exposure_stops": 1.0,
+      "artificial_lights_enabled": true,
+      "solar": {
+        "local_datetime": "2025-09-21T19:20:00-07:00",
+        "wall_time": "2025-09-21T19:20:00",
+        "timezone": "America/Los_Angeles",
+        "fold": 0,
+        "utc_datetime": "2025-09-22T02:20:00+00:00",
+        "utc_offset_hours": -7.0,
+        "julian_date_utc": 2460940.597222222,
+        "latitude_deg": 34.03901922388071,
+        "longitude_deg": -118.24590326933966,
+        "azimuth_true_north_clockwise_deg": 275.0299827768664,
+        "altitude_geometric_deg": -6.934195937276817,
+        "altitude_apparent_standard_atmosphere_deg": -6.886752658219313,
+        "declination_deg": 0.26032954872557956,
+        "equation_of_time_minutes": 7.204734688129427,
+        "hour_angle_deg": 98.55528040269269
+      },
+      "azimuth_grid_north_clockwise_deg": 275.72746284120825,
+      "sun_direction_towards_sun_grid_xyz": [
+        -0.98772982892291,
+        0.09906671888483579,
+        -0.12072932645099974
+      ],
+      "sun_ray_direction_grid_xyz": [
+        0.98772982892291,
+        -0.09906671888483579,
+        0.12072932645099974
+      ],
+      "sun_rotation_euler_xyz_degrees": [
+        96.93419593727681,
+        0.0,
+        -95.72746284120825
+      ],
+      "solar_altitude_used_for_rotation": "geometric_no_refraction",
+      "sun_below_horizon": true,
+      "lighting_parameter_evidence": "authored plausible rendering parameters; not measured solar irradiance, sky luminance, or weather"
+    },
+    "night": {
+      "wall_time": "2025-09-21T21:00:00",
+      "label_zh": "夜景",
+      "sun_energy": 0.0,
+      "sun_color_linear_rgb": [
+        1.0,
+        0.5,
+        0.25
+      ],
+      "sun_angle_deg": 0.526,
+      "world_model": "authored_night_constant",
+      "world_color_linear_rgb": [
+        0.04,
+        0.055,
+        0.1
+      ],
+      "world_strength": 0.1,
+      "exposure_stops": 1.3,
+      "artificial_lights_enabled": true,
+      "solar": {
+        "local_datetime": "2025-09-21T21:00:00-07:00",
+        "wall_time": "2025-09-21T21:00:00",
+        "timezone": "America/Los_Angeles",
+        "fold": 0,
+        "utc_datetime": "2025-09-22T04:00:00+00:00",
+        "utc_offset_hours": -7.0,
+        "julian_date_utc": 2460940.6666666665,
+        "latitude_deg": 34.03901922388071,
+        "longitude_deg": -118.24590326933966,
+        "azimuth_true_north_clockwise_deg": 290.576546496272,
+        "altitude_geometric_deg": -27.117927528409602,
+        "altitude_apparent_standard_atmosphere_deg": -27.106660654265063,
+        "declination_deg": 0.2333128909028628,
+        "equation_of_time_minutes": 7.229262823828667,
+        "hour_angle_deg": 123.5614124366175
+      },
+      "azimuth_grid_north_clockwise_deg": 291.27402656061383,
+      "sun_direction_towards_sun_grid_xyz": [
+        -0.8294171017124088,
+        0.32294314407204144,
+        -0.45582342752852484
+      ],
+      "sun_ray_direction_grid_xyz": [
+        0.8294171017124088,
+        -0.32294314407204144,
+        0.45582342752852484
+      ],
+      "sun_rotation_euler_xyz_degrees": [
+        117.11792752840961,
+        0.0,
+        -111.27402656061383
+      ],
+      "solar_altitude_used_for_rotation": "geometric_no_refraction",
+      "sun_below_horizon": true,
+      "lighting_parameter_evidence": "authored plausible rendering parameters; not measured solar irradiance, sky luminance, or weather"
+    }
+  },
+  "validation": {
+    "status": "passed",
+    "actual_execution": true,
+    "comparisons": [
+      {
+        "preset": "clear_day",
+        "passed": true,
+        "independent_comparison": {
+          "method": "low-order solar right-ascension / Greenwich sidereal-time path",
+          "altitude_deg": 56.16212511204187,
+          "azimuth_deg": 186.36720532536415,
+          "absolute_altitude_difference_deg": 0.000452364485042267,
+          "absolute_azimuth_difference_deg": 0.015611918254109014,
+          "meaning": "calculation consistency only; not an observed-sun or source-accuracy validation"
+        },
+        "euler_vector_max_absolute_error": 1.5265566588595902e-16
+      },
+      {
+        "preset": "golden_hour",
+        "passed": true,
+        "independent_comparison": {
+          "method": "low-order solar right-ascension / Greenwich sidereal-time path",
+          "altitude_deg": 5.488985089271117,
+          "azimuth_deg": 266.61562368522794,
+          "absolute_altitude_difference_deg": 0.006403845038021494,
+          "absolute_azimuth_difference_deg": 0.00590179444458272,
+          "meaning": "calculation consistency only; not an observed-sun or source-accuracy validation"
+        },
+        "euler_vector_max_absolute_error": 9.71445146547012e-17
+      },
+      {
+        "preset": "blue_hour",
+        "passed": true,
+        "independent_comparison": {
+          "method": "low-order solar right-ascension / Greenwich sidereal-time path",
+          "altitude_deg": -6.940577298481178,
+          "azimuth_deg": 275.03592088374796,
+          "absolute_altitude_difference_deg": 0.006381361204360836,
+          "absolute_azimuth_difference_deg": 0.005938106881558269,
+          "meaning": "calculation consistency only; not an observed-sun or source-accuracy validation"
+        },
+        "euler_vector_max_absolute_error": 1.249000902703301e-16
+      },
+      {
+        "preset": "night",
+        "passed": true,
+        "independent_comparison": {
+          "method": "low-order solar right-ascension / Greenwich sidereal-time path",
+          "altitude_deg": -27.123790645380655,
+          "azimuth_deg": 290.5837409612707,
+          "absolute_altitude_difference_deg": 0.005863116971053017,
+          "absolute_azimuth_difference_deg": 0.007194464998690364,
+          "meaning": "calculation consistency only; not an observed-sun or source-accuracy validation"
+        },
+        "euler_vector_max_absolute_error": 2.7755575615628914e-16
+      }
+    ],
+    "dst_winter_summer_and_fall_fold_passed": true,
+    "nonexistent_spring_time_rejected": true,
+    "projected_true_north_sign_verified": true,
+    "near_solar_noon": {
+      "local_datetime": "2025-09-21T12:46:00-07:00",
+      "azimuth_deg": 180.05609382659145,
+      "altitude_deg": 56.327729905881185
+    },
+    "scope": "solar computation and transforms only; no stage08 model/render acceptance implied"
+  }
+}

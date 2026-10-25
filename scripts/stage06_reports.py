@@ -1,0 +1,59 @@
+"""Traceable source/difference cards, geographic diagnostics and factual summaries."""
+from pathlib import Path
+import csv,datetime,hashlib,json,math,re
+import numpy as np,shapely
+from shapely.geometry import shape
+from pyproj import Transformer
+from PIL import Image,ImageDraw,ImageStat
+from stage02_io import write_json,digest
+ROOT=Path(__file__).resolve().parents[1]
+VIEWS={
+ 'us_bank_tower':('2008/2014/2022地面正/斜侧景；未取得独立屋顶俯视，背面与裙房服务立面不完整。','圆冠/灯笼层、石材竖梃和分段窗格为照片指导近似；未复制商标、过时Skyslide、隐蔽设备。'),
+ 'wilshire_grand':('2022远景、2025地面斜景、2024入口夜景；施工照片不用于当前外观；屋顶/背面有盲区。','三个73层来源分部合并为完整塔身；245m带标签分部不能单独代表全塔平面。源屋顶/针塔高度定义冲突保留，冠顶按次级928ft参考插值；针塔总高使用工程师1100ft。'),
+ 'city_hall':('2003/2017/2022正面/斜景、2025近景；OSM多层平面，缺完整实测背面及独立屋顶照片。','保留来源低层庭院与层次；门窗节奏、观察层柱列、金字塔顶为参数化近似，浮雕、铭文未复刻。'),
+ 'disney_hall':('2015金属曲面近景、两幅可复制航拍；可检查整体曲面组织，背后接缝/庭园局部仍不清楚。','11片可编辑采样曲面，不是原CATIA施工曲面；面板缝按近似分格生成，并未重建官方6000余片逐片形状。'),
+ 'the_broad':('2015格栅细节、两幅洛杉矶馆正/转角夜景；Michigan同名馆、运动/铁路误匹配均排除；背面和屋顶缺图。','连续斜向格栅、凹入眼窗、玻璃底层/入口角和采光格构已建；孔型、真实每块GFRC、屋面布局、扩建工地未完整复刻。'),
+ 'union_station':('2013/2022西立面及钟塔多个角度；并非六个独立完整方位，东侧/后方/屋顶覆盖不足。','钟塔、拱窗、差异化红瓦大厅、推断庭院与原交通层关联；屋顶分区、钟面、庭院界线及东后立面均有推断。'),
+ 'griffith_observatory':('2012北草坪正景、2015南坡斜景、2016望远镜穹顶、铜饰近景和2025平台局部；无完整屋顶航测。','官网77ft/55ft顶部高度和236ft/176ft外墙尺寸作为公布参考；球面曲率、雕刻、鼓座细节仍近似，地下扩建未建。'),
+ 'hollywood_sign':('2015/2021正面远景、2019背面钢架和可复制航拍；个别字母背侧与锚固不完整。','九条来源线分别定位，含O/D内洞、自制H/O/L/Y/W/D字形；钢架截面和锚固推断，基脚从10m裸地DEM估计，非原厂字体/施工图。'),
+ 'dodger_stadium':('2024航拍、2007布局航拍、2015本垒看台场内照片；1962–1980历史照片不当作当前细节。','NNE外场开口、分层彩色看台、波形水平罩棚、六角计分牌和灯塔；座位/通道/结构数量与2025/26改造尚未逐处核实。'),
+ 'memorial_coliseum':('2025全景确认2019后俱乐部楼；2008/2017航拍只支持旧平面和周边关系；1987/更早历史图不代表当下。','东侧柱廊拱门、火炬、南侧七层俱乐部楼、椭圆看台/标准足球场；精确剖面、雕像和铭文、设施位置为近似或缺失。')}
+def document(root=ROOT):
+ cfg=json.loads((root/'config/stage06.json').read_text());reg=json.loads((root/'data/processed/stage06/research_registry.json').read_text());geom=json.loads((root/'data/processed/stage06/geometry_index.json').read_text());entries=[];summary=[];cards=[];docdir=root/'docs/landmarks';docdir.mkdir(parents=True,exist_ok=True)
+ for lm in geom['landmarks']:
+  ident=lm['id'];p=root/lm['card'];a=json.loads(p.read_text());research=next(r for r in reg['landmarks'] if r['id']==ident);a['official_pages']=research['official_pages'];a['status']='近似完成';a['status_code']='approximate_complete_with_documented_gaps';a['reference_coverage_review'],a['model_reference_difference']=VIEWS[ident];a['ground']['method']='native USGS DEM sampled at source-plan centroid +0.16m; inferred site floor. Sign letters use endpoint maximum +0.22m; selected terrain is replaced locally by recorded refinement/grading.';a['measured_source_plan_dimensions_m']={'x':a['local_plan_bounds_m'][2]-a['local_plan_bounds_m'][0],'y':a['local_plan_bounds_m'][3]-a['local_plan_bounds_m'][1]};a['source_plan_dimensions_precision']='numeric source-derived size; horizontal survey accuracy not independently known';write_json(p,a);cards.append(a)
+  rows=['# '+a['name'],'','状态：**近似完成**。已建立具有专项几何特征的资产；不计为逐处核实的写实精修完成。','',f"目标外观：{a['target_configuration']}。",'',f"位置WGS84：{a['longitude_latitude']}；局部原点city metres：{a['origin_city_m']}。",f"朝向：从投影东逆时针{a['rotation_from_grid_east_degrees']:.6f}°；完整矩阵与真实来源平面见`{lm['card']}`。",'',f"来源平面：`{a['source_uid']}`，面积{a['source_plan_area_m2']:.2f}m²；轴向包络{a['measured_source_plan_dimensions_m']}。原始ID、编辑日期和分部保留在JSON。",f"高度定义：{a['height_basis']}。地形单独采用NAVD88米制；未知OSM ele/县ELEV未混入。",'',"主要材质：石材/玻璃/金属/涂装钢板/红瓦/铜等依参考分配；程序化微表面并非经采样的实物PBR材质。",'',"## 已建立的识别特征",'']+['- '+s for s in a['confirmed_identifying_features']]+['',"## 资料覆盖与差异",'',VIEWS[ident][0],VIEWS[ident][1],'']+['- '+s for s in a['unconfirmed_or_approximated']]+['',"环境：邻接建筑、路网、地形按同一真实地理变换提取；场地整平、入口台阶和平台属标记推断。未改变道路XY或地标相对距离。",'',"## 资产和实际图像",'',f"- 可编辑：`assets/landmarks/stage06/{ident}.blend`；内含near/mid/far独立命名集合、米制、参数/来源文本及少量可编辑修改器。",f"- 实时简化：`outputs/stage06/glb/{ident}/near.glb`、`mid.glb`、`far.glb`。已实际重新导入；无自动距离切换。",f"- 图像：`work/previews/stage06/{ident}/front.png`、`side.png`、`top.png`、`environment.png`。",f"- 环境工程：`scenes/stage06_context_{ident}.blend`；430/650m半径的真实邻域提取，用于离线检查，非运行时流送。",'',"| 版本 | 作者网格三角形 |",'|---|---:|']+['|'+r['lod']+'|'+str(r['triangles'])+'|' for r in lm['assets']]+['',"## 已核查网页与授权参考图",'']
+  for page in research['official_pages']:
+   rows.append('- '+page['requested_url']+'；HTTP/可用状态：'+str(page.get('http_status',page.get('status')))+'。网页更新不等于建筑资料采集年。')
+  for j,photo in enumerate(research['reference_photos']):
+   used=j+1 in a['selected_reference_numbers'];entry={'id':ident+':photo:'+str(j+1),'name':photo['title'],'publisher_or_creator':photo['author'],'original_page':photo['source_page'],'download_url':photo['download_url'],'download_date':photo['downloaded_at_utc'],'actual_capture_date_description':photo['date_description'] or 'unknown','content_update_date':'unknown; Commons metadata snapshot retained','webpage_update_date':'unknown; not used as capture date','coverage':ident+' single perspective photograph','horizontal_crs':'not georectified photograph','vertical_datum':'not applicable','horizontal_units':'pixels','height_units':'not applicable','resolution_or_accuracy':'900px requested thumbnail; original photographic geometry uncalibrated','use_terms':photo['license'],'license_url':photo['license_url'],'attribution':photo['author']+'; '+photo['credit'],'redistribution':'under stated image-specific license, retain attribution/license; no photo used as model texture','local_path':photo['local_path'],'sha256':photo['sha256'],'selected_for_research':used,'rejection_if_not_selected':'irrelevant subject, obsolete construction/history, duplicate view or insufficient additional coverage'};entries.append(entry)
+   if used:rows.append(f"- [{photo['title']}]({photo['source_page']})；{photo['license']}；作者：{photo['author']}；拍摄日期说明：{photo['date_description'] or '未知'}。完整署名/许可URL在来源登记。")
+  rows+=['',"没有引入第三方三维模型。上述照片仅供有署名的内部研究与对比，不作为纹理。其他版权页面只缓存文字/HTML研究记录，未下载其远程照片。室内未建。",''];(docdir/(ident+'.md')).write_text('\n'.join(rows))
+  summary.append({'id':ident,'name':a['name'],'status':'近似完成','difference':VIEWS[ident][1],'reference_coverage':VIEWS[ident][0],'triangles':{r['lod']:r['triangles'] for r in lm['assets']},'replaced_proxies':len(a['replaces'])})
+ # Every cached research payload has a receipt/checksum, including dimension supplements.
+ for p in sorted((root/'data/raw/stage06/research').rglob('*.receipt.json')):
+  target=Path(str(p)[:-len('.receipt.json')]);receipt=json.loads(p.read_text());assert digest(target)==receipt['sha256'];entries.append({'id':'research:'+str(target.relative_to(root)),'original_page':receipt['requested_url'],'download_url':receipt['url'],'download_date':receipt['downloaded_at_utc'],'actual_capture_or_acquisition_year':'unknown/not applicable to webpage retrieval','webpage_update_date':receipt.get('headers',{}).get('last-modified','unknown'),'content_update_date':'unknown; research cached at download date','coverage':'linked landmark or small sign bbox','horizontal_crs':'EPSG4326 for sign .osm; otherwise not applicable','vertical_datum':'unknown for source OSM ele; unused','horizontal_units':'degrees for .osm; otherwise not applicable','height_units':'OSM tagged units resolved separately; webpage quoted feet converted using international0.3048m','resolution_or_accuracy':'source dependent/unknown; no survey claim','use_terms':'ODbL1.0 for OSM; image-specific CC/PD in image entries; copyrighted HTML/text internal factual research only, no remote photos copied','redistribution':'conditional on source terms; no blanket relicensing','local_path':str(target.relative_to(root)),'sha256':receipt['sha256']})
+ for path,title,terms in [('data/processed/stage05/osm_buildings.sqlite','Frozen stage05 OSM source plans/parts from California PBF2026-10-20','ODbL1.0 ©OpenStreetMap contributors'),('data/processed/stage05/buildings.sqlite','Stage05 county/OSM corresponding ordinary proxies','mixed county terms/OSM ODbL; lineage retained in stage05 registry'),('data/processed/stage02/city_10m_dem_navd88_m.tif','USGS bare-earth city DEM','USGS public-domain federal data; see stage02 acquisition vintage'),('data/processed/stage02/downtown_1m_dem_navd88_m.tif','USGS bare-earth Downtown DEM','USGS public-domain federal data; see stage02 acquisition vintage')]:entries.append({'id':'inherited:'+path,'name':title,'local_path':path,'sha256':digest(root/path),'use_terms':terms,'download_and_acquisition_dates':'preserved in stage02/stage04/stage05 source registries; OSM database state is not capture year','horizontal_crs':'project-local EPSG32611 forSQLite; EPSG32611 forDEM','vertical_datum':'NAVD88 forDEM only; source ELEV/ele unknown and unused','units':'metres in processed geometry; raw source units retained','accuracy':'source dependent, not numeric transform error','original_page':'https://www.openstreetmap.org/copyright' if 'osm' in path else 'see inherited source registry'})
+ write_json(root/'data/processed/stage06/source_registry.json',{'stage':6,'sources':entries,'original_models_authorship':'project procedural scripts; no third-party3D imports','osm_attribution':'© OpenStreetMap contributors, ODbL1.0, https://www.openstreetmap.org/copyright','mixed_dates_not_one_day_snapshot':True});write_json(root/'work/reports/stage06/landmark_summary.json',{'completed_verified':0,'approximate_complete':10,'entirely_missing':0,'landmarks':summary})
+ tx=Transformer.from_crs(32611,4326,always_xy=True);inv=Transformer.from_crs(4326,32611,always_xy=True);origin=np.array(cfg['origin_utm_m']);controls=[]
+ for a in cards:
+  xy=np.array(a['origin_city_m'][:2]);lon,lat=tx.transform(*(xy+origin));e,n=inv.transform(lon,lat);err=float(np.linalg.norm(np.array([e,n])-origin-xy));controls.append({'id':a['id'],'longitude':lon,'latitude':lat,'city_xy_m':xy.tolist(),'roundtrip_numeric_error_m':err,'source_plan_accuracy':'unknown/source-dependent, not this numerical value'})
+ distances=[]
+ for i,a in enumerate(cards):
+  for b in cards[i+1:]:distances.append({'a':a['id'],'b':b['id'],'planar_distance_m':float(np.linalg.norm(np.array(a['origin_city_m'][:2])-b['origin_city_m'][:2]))})
+ write_json(root/'work/reports/stage06/geographic_validation.json',{'status':'passed_numeric_only','controls':controls,'pairwise_distances':distances,'source_geography_not_changed_for_composition':True,'horizontal_crs':'EPSG32611 minus fixed city origin','vertical':'NAVD88 ground; no source ELEV/ele mixing'})
+ return summary
+def contacts(root=ROOT):
+ rows=json.loads((root/'config/stage06.json').read_text())['landmarks']
+ for offset in [0,5]:
+  sheet=Image.new('RGB',(1600,5*325),'#ddd');d=ImageDraw.Draw(sheet)
+  for j,a in enumerate(rows[offset:offset+5]):
+   for k,v in enumerate(['front','side','top','environment']):
+    p=root/'work/previews/stage06'/a['id']/(v+'.png');im=Image.open(p).convert('RGB');assert im.size==(1200,900) and max(ImageStat.Stat(im).stddev)>2;im.thumbnail((395,296));sheet.paste(im,(k*400,j*325));d.text((k*400+3,j*325+300),a['id']+' '+v,fill='black')
+  sheet.save(root/'work/previews/stage06'/('final_contact_'+str(offset)+'.jpg'))
+ for a in rows:
+  card=json.loads((root/'data/processed/stage06/cards'/(a['id']+'.json')).read_text());photo=next(p for p in card['reference_photographs'] if 'logo' not in p['title'].lower());sheet=Image.new('RGB',(1500,650),'#ddd');d=ImageDraw.Draw(sheet)
+  for j,p in enumerate([root/photo['local_path'],root/'work/previews/stage06'/a['id']/'environment.png']):
+   im=Image.open(p).convert('RGB');im.thumbnail((740,580));sheet.paste(im,(j*750,0))
+  d.text((8,590),'SOURCE '+photo['date_description'][:55]+' '+photo['license'],fill='black');d.text((758,590),'MODEL: different camera; qualitative comparison only',fill='black');d.text((8,615),a['id']+'; source credit/license in source_registry.json; not photogrammetric comparison',fill='black');sheet.save(root/'work/previews/stage06'/a['id']/'reference_comparison.jpg')
+if __name__=='__main__':document();contacts()

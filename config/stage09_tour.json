@@ -1,0 +1,107 @@
+{
+  "duration_seconds": 36,
+  "repetitions_for_test": 3,
+  "segment_seconds": 7.2,
+  "hold_fraction": 0.333,
+  "ease": "smoothstep",
+  "travel_lift_m": "clamp(distance*.25,250,6000)*4*t*(1-t)",
+  "coordinate_axes": "source city east/north/up metres",
+  "waypoints": [
+    {
+      "id": "overview",
+      "position_m": [
+        -18000,
+        -30000,
+        95000
+      ],
+      "target_m": [
+        -18000,
+        1000,
+        100
+      ]
+    },
+    {
+      "id": "historic_street",
+      "name": "Historic Core 街景",
+      "position_m": [
+        -462.9881523218355,
+        769.891940115951,
+        82.32244717912755
+      ],
+      "target_m": [
+        -544.9881523218355,
+        864.891940115951,
+        90.32244717912755
+      ],
+      "focus_xy_m": [
+        -462.9881523218355,
+        769.891940115951
+      ],
+      "radius_m": 420,
+      "detail_radius_m": 150,
+      "lens_mm": 30,
+      "evidence": "existing real geographic street position; camera Z sampled from revision street-constrained grade"
+    },
+    {
+      "id": "civic_street",
+      "name": "Civic Center 街景",
+      "position_m": [
+        236.6377104325802,
+        1650.480988319032,
+        94.72618510749821
+      ],
+      "target_m": [
+        322.6173339803354,
+        1756.1935510770418,
+        102.72618510749821
+      ],
+      "focus_xy_m": [
+        236.6377104325802,
+        1650.480988319032
+      ],
+      "radius_m": 420,
+      "detail_radius_m": 150,
+      "lens_mm": 30,
+      "evidence": "existing real geographic street position; camera Z sampled from revision street-constrained grade"
+    },
+    {
+      "id": "landmark-griffith_observatory",
+      "position_m": [
+        -4414.26716633628,
+        8198.86924627892,
+        666.2937234027568
+      ],
+      "target_m": [
+        -4914.26716633628,
+        8848.86924627892,
+        416.2937234027568
+      ]
+    },
+    {
+      "id": "landmark-us_bank_tower",
+      "position_m": [
+        -270.0226012841333,
+        695.4085060389448,
+        421.16952358443984
+      ],
+      "target_m": [
+        -770.0226012841333,
+        1345.4085060389448,
+        171.16952358443982
+      ]
+    },
+    {
+      "id": "overview",
+      "position_m": [
+        -18000,
+        -30000,
+        95000
+      ],
+      "target_m": [
+        -18000,
+        1000,
+        100
+      ]
+    }
+  ]
+}

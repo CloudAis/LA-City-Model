@@ -1,0 +1,51 @@
+{
+  "stage": 8,
+  "source_scene": "scenes/stage07_final.blend",
+  "output_scene": "scenes/stage08_city_medium.blend",
+  "seed": 20261021,
+  "quality": "medium",
+  "camera": {
+    "stage07_view": "records_facade",
+    "selection_reason": "Known research building, actual mapped trees and civic street lamps within the same real camera vicinity; four presets keep identical geometry and camera."
+  },
+  "render": {
+    "width": 1280,
+    "height": 960,
+    "samples": 48,
+    "threads": 4,
+    "indirect_clamp": 3.0,
+    "denoising": false
+  },
+  "texture_quality": "near",
+  "night_window_fraction": 0.28,
+  "max_real_road_lights": 24,
+  "max_real_entrance_lights": 16,
+  "atmosphere_density_per_m": 1.8e-05,
+  "notes": "Original tileable texture assets, UV-backed near materials and constant far PBR variants. Nightlight states are stable authored simulation, not observed occupancy.",
+  "legacy_seat_colors_linear": {
+    "seat_yellow": [
+      0.73,
+      0.56,
+      0.22,
+      1
+    ],
+    "seat_orange": [
+      0.67,
+      0.3,
+      0.12,
+      1
+    ],
+    "seat_blue": [
+      0.16,
+      0.35,
+      0.43,
+      1
+    ],
+    "seat_red": [
+      0.41,
+      0.055,
+      0.08,
+      1
+    ]
+  }
+}

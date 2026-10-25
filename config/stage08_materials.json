@@ -1,0 +1,28 @@
+{
+  "stage": 8,
+  "seed": 20261021,
+  "generation_class": "artistic_synthetic_original",
+  "dimensions_px": {"near": 1024, "mid": 512, "far": 256},
+  "normal_convention": "OpenGL tangent-space +Y; R=+T, G=+B, B=+N",
+  "orm_channels": {"R": "ambient occlusion = 1 (not baked geometry AO)", "G": "perceptual roughness", "B": "metallic"},
+  "base_color_space": "sRGB",
+  "data_color_space": "Non-Color",
+  "sampler": {"wrap_s": "REPEAT", "wrap_t": "REPEAT", "mag_filter": "LINEAR", "min_filter": "LINEAR_MIPMAP_LINEAR"},
+  "texture_budget_mib": 110,
+  "materials": {
+    "asphalt": {"base_color_srgb": [0.145, 0.151, 0.153], "roughness": 0.86, "metallic": 0.0, "tile_size_m": [8.0, 8.0], "height_amplitude_m": 0.0014, "variation": 0.15, "description": "Dry fine aggregate asphalt; subtle 0.2–2m patches, no invented lane wear."},
+    "concrete": {"base_color_srgb": [0.53, 0.51, 0.46], "roughness": 0.79, "metallic": 0.0, "tile_size_m": [4.0, 4.0], "height_amplitude_m": 0.0008, "variation": 0.10, "description": "Unpainted exterior concrete, small pores and low-contrast mottling."},
+    "paving_stone": {"base_color_srgb": [0.57, 0.55, 0.49], "roughness": 0.76, "metallic": 0.0, "tile_size_m": [4.0, 4.0], "height_amplitude_m": 0.002, "variation": 0.07, "slab_size_m": [1.0, 1.0], "joint_width_m": 0.009, "description": "Meter-scale neutral slabs; joints are texture relief, not certified construction joints."},
+    "brick": {"base_color_srgb": [0.61, 0.40, 0.25], "roughness": 0.81, "metallic": 0.0, "tile_size_m": [3.84, 1.20], "height_amplitude_m": 0.0025, "variation": 0.12, "brick_pitch_m": [0.24, 0.075], "mortar_width_m": 0.009, "description": "Running-bond yellow/red masonry. Actual building brick color remains approximate."},
+    "stucco": {"base_color_srgb": [0.72, 0.69, 0.62], "roughness": 0.84, "metallic": 0.0, "tile_size_m": [4.0, 4.0], "height_amplitude_m": 0.0007, "variation": 0.06, "description": "Mineral stucco and matte exterior coating, finer than concrete."},
+    "paint": {"base_color_srgb": [0.76, 0.75, 0.70], "roughness": 0.58, "metallic": 0.0, "tile_size_m": [4.0, 4.0], "height_amplitude_m": 0.00015, "variation": 0.035, "description": "Coated opaque surface, nonmetal even when applied over metal."},
+    "glass": {"base_color_srgb": [0.32, 0.43, 0.46], "roughness": 0.16, "metallic": 0.0, "tile_size_m": [4.0, 4.0], "height_amplitude_m": 0.0, "variation": 0.015, "transmission": 0.72, "ior": 1.5, "alpha_mode": "OPAQUE", "thin_walled": true, "description": "Tinted dielectric glazing. Transmission uses KHR_materials_transmission; fallback is opaque tinted dielectric, not metal."},
+    "metal": {"base_color_srgb": [0.63, 0.64, 0.64], "roughness": 0.34, "metallic": 1.0, "tile_size_m": [2.0, 2.0], "height_amplitude_m": 0.00004, "variation": 0.035, "description": "Uncoated brushed aluminum/steel approximation; paint uses separate dielectric material."},
+    "roof": {"base_color_srgb": [0.29, 0.30, 0.29], "roughness": 0.89, "metallic": 0.0, "tile_size_m": [8.0, 8.0], "height_amplitude_m": 0.0009, "variation": 0.10, "description": "Dry mineral roofing membrane distinct from vertical concrete and ground asphalt."},
+    "soil": {"base_color_srgb": [0.46, 0.35, 0.23], "roughness": 0.94, "metallic": 0.0, "tile_size_m": [8.0, 8.0], "height_amplitude_m": 0.003, "variation": 0.17, "description": "Dry exposed earth, not a measured soil survey or displacement terrain."},
+    "grass": {"base_color_srgb": [0.24, 0.34, 0.12], "roughness": 0.91, "metallic": 0.0, "tile_size_m": [4.0, 4.0], "height_amplitude_m": 0.0014, "variation": 0.15, "description": "Low ground vegetation surface, distant representation rather than individual grass blades."},
+    "leaf": {"base_color_srgb": [0.18, 0.32, 0.08], "roughness": 0.68, "metallic": 0.0, "tile_size_m": [0.18, 0.34], "height_amplitude_m": 0.00025, "variation": 0.11, "alpha_mode": "MASK", "alpha_cutoff": 0.4, "double_sided": true, "uv_mode": "single_leaf_0_1", "description": "Original generic oval leaf with veins; shape/tree species are inferred, alpha from base-color texture."},
+    "water": {"base_color_srgb": [0.13, 0.25, 0.27], "roughness": 0.13, "metallic": 0.0, "tile_size_m": [12.0, 12.0], "height_amplitude_m": 0.006, "variation": 0.025, "transmission": 0.28, "ior": 1.333, "alpha_mode": "OPAQUE", "thin_walled": true, "description": "Distant river/sea surface approximation. Wave normal is not water-level displacement; no fabricated bathymetry."},
+    "road_marking": {"base_color_srgb": [0.83, 0.82, 0.74], "roughness": 0.69, "metallic": 0.0, "tile_size_m": [2.0, 2.0], "height_amplitude_m": 0.00025, "variation": 0.05, "description": "Neutral dry lane/crosswalk paint with modest granularity; yellow variant tints base factor."}
+  }
+}

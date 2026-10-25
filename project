@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
+if [ ! -x .venv/bin/python ]; then
+  echo "Project Python environment missing. Run: bash scripts/bootstrap.sh" >&2
+  exit 1
+fi
+if [ "${1:-}" = run ]; then
+  mkdir -p work/cache
+  exec 9>work/cache/project-build.lock
+  if ! flock --nonblock 9; then
+    echo "BUILD_BUSY: another project run holds the workspace build lock; exit 75." >&2
+    exit 75
+  fi
+fi
+exec .venv/bin/python scripts/project.py "$@"

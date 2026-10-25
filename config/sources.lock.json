@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "filename": "census_2020_ca_places_500k.geojson",
+      "url": "https://raw.githubusercontent.com/uscensusbureau/citysdk/fc5d7880529fedcde181269fc5d518767221281e/v2/GeoJSON/500k/2020/06/place.json",
+      "sha256": "03b7a1701fa4f7f32448f7e1c67b0675c8b722f61b34227cc446fc20f087d0c9",
+      "bytes": 3930303
+    },
+    {
+      "filename": "census_citysdk_README.md",
+      "url": "https://raw.githubusercontent.com/uscensusbureau/citysdk/fc5d7880529fedcde181269fc5d518767221281e/README.md",
+      "sha256": "1a81b7f964a838819551fd83ec844e344d9148683b29b634c2511e229dc68165",
+      "bytes": 27292
+    },
+    {
+      "filename": "click_that_hood_LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/codeforgermany/click_that_hood/48ba05ad4c6969e3b3c25735492169227ae411f1/LICENSE",
+      "sha256": "4895ffb278e3c7238b10594a36d4c5085dc150ca1c8d32f32958daaeb84059c9",
+      "bytes": 1079
+    },
+    {
+      "filename": "la_neighborhoods.geojson",
+      "url": "https://raw.githubusercontent.com/codeforgermany/click_that_hood/48ba05ad4c6969e3b3c25735492169227ae411f1/public/data/los-angeles.geojson",
+      "sha256": "7937241275b0383b29286e030ccc7ee767d6eade9da1cb1f8caf9bc798263c0e",
+      "bytes": 883765
+    },
+    {
+      "filename": "la_neighborhoods_metadata.json",
+      "url": "https://raw.githubusercontent.com/codeforgermany/click_that_hood/48ba05ad4c6969e3b3c25735492169227ae411f1/public/data/los-angeles.metadata.json",
+      "sha256": "6e8d887ed80b8e244ab4e88d96787559346c967955e2c9e4093ccad66179caf6",
+      "bytes": 188
+    }
+  ]
+}

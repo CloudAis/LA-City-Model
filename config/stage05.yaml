@@ -1,0 +1,71 @@
+stage: 5
+build_version: la_buildings_v5
+working_crs: EPSG:32611
+origin_file: data/processed/origin.json
+base_scene: scenes/stage04_city_medium.blend
+seed: 20261021
+tile_size_m: 1000
+height:
+  priority: [verified_reference_roof, osm_explicit_height, osm_levels, explicit_lariac_candidate_interpretation, type_estimate]
+  lariac_HEIGHT_definition_verified: false
+  lariac_HEIGHT_candidate_unit_hypothesis: US_survey_foot
+  lariac_ELEV_used_as_absolute_elevation: false
+  valid_relative_range_m: [1.5, 420]
+  candidate_interpretation_is_inferred: true
+  maximum_reference_roof_height_ratio_for_unqualified_osm_total: 1.12
+  ground_floor_allowance_m: 0.20
+  type_review_threshold_m: 24
+  reported_height_type_conflict_reclassify_m: 35
+ground:
+  sample_boundary_step_m: 20
+  floor_above_highest_sample_m: 0.18
+  foundation_embed_m: 0.30
+  hillside_relief_threshold_m: 2.0
+  high_foundation_warning_m: 8.0
+geometry:
+  city_simplify_m: 0.25
+  downtown_simplify_m: 0.03
+  closeup_simplify_m: 0.01
+  maximum_area_change_ratio: 0.02
+  preserve_all_courtyard_holes: true
+  match_min_iou: 0.45
+  part_min_inside_ratio: 0.85
+  maximum_part_plan_area_ratio: 1.05
+  add_unmatched_osm_min_area_m2: 30
+  add_unmatched_osm_max_overlap_ratio: 0.05
+  minimum_display_triangle_area_m2: 0.000001
+  roof_height_default_m: 2.2
+  roof_height_ratio_max: 0.35
+  parapet_height_m: 0.70
+  parapet_width_m: 0.18
+detail:
+  window_bay_m: 2.2
+  closeup_window_limit_per_building: 180
+  downtown_roof_equipment_limit_per_building: 3
+  default_entry_width_m: 1.8
+  maximum_entrance_steps: 8
+  load_radius_m: 600
+  visible_triangle_cap: 1500000
+types:
+  office_highrise: {floor_m: 3.8, default_levels: 12, facade: glass_grid, roof: flat, color: [0.25, 0.32, 0.37, 1]}
+  mixed_use_apartment: {floor_m: 3.1, default_levels: 4, facade: stucco_grid, roof: flat, color: [0.61, 0.57, 0.48, 1]}
+  detached_house: {floor_m: 3.0, default_levels: 1, facade: stucco, roof: gabled, color: [0.65, 0.60, 0.51, 1]}
+  multifamily_residential: {floor_m: 3.0, default_levels: 2, facade: stucco_grid, roof: flat, color: [0.63, 0.58, 0.50, 1]}
+  historic_masonry: {floor_m: 3.6, default_levels: 4, facade: masonry_grid, roof: flat, color: [0.43, 0.26, 0.19, 1]}
+  commercial_shop: {floor_m: 4.0, default_levels: 1, facade: storefront, roof: flat, color: [0.59, 0.55, 0.47, 1]}
+  industrial_warehouse: {floor_m: 6.0, default_levels: 1, facade: industrial, roof: flat, color: [0.58, 0.59, 0.57, 1]}
+  parking_structure: {floor_m: 3.1, default_levels: 4, facade: open_parking, roof: flat, color: [0.54, 0.54, 0.51, 1]}
+  school_campus: {floor_m: 3.6, default_levels: 2, facade: institutional, roof: flat, color: [0.64, 0.58, 0.47, 1]}
+  hospital_public: {floor_m: 4.0, default_levels: 4, facade: institutional, roof: flat, color: [0.64, 0.65, 0.62, 1]}
+  garage_outbuilding: {floor_m: 2.7, default_levels: 1, facade: service, roof: flat, color: [0.55, 0.53, 0.47, 1]}
+  unclassified_lowrise: {floor_m: 3.2, default_levels: 2, facade: neutral, roof: flat, color: [0.58, 0.56, 0.51, 1]}
+  unclassified_tall: {floor_m: 3.6, default_levels: 8, facade: neutral_grid, roof: flat, color: [0.48, 0.49, 0.47, 1]}
+render:
+  width: 1536
+  height: 1152
+  city_samples: 8
+  skyline_samples: 16
+  street_samples: 24
+  device: CPU
+  threads: 4
+  denoising: false

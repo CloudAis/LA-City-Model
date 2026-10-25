@@ -1,0 +1,190 @@
+{
+  "city_top": {
+    "position_m": [
+      -15145.891853225708,
+      -1882.412033794215,
+      120000
+    ],
+    "target_m": [
+      -15145.891853225708,
+      -1882.412033794215,
+      0
+    ],
+    "ortho_scale_m": 101609.17819425905,
+    "focus_xy_m": [
+      -15145.891853225708,
+      -1882.412033794215
+    ],
+    "radius_m": 100000,
+    "mode": "city",
+    "samples": 8,
+    "description": "whole administrative footprint, low-density building alternative, offline review",
+    "camera_lonlat": [
+      -118.40966082942899,
+      34.020275197278444
+    ],
+    "camera_axis": "X grid east,Y grid north,Z up; meters"
+  },
+  "downtown_top": {
+    "position_m": [
+      0,
+      0,
+      10000
+    ],
+    "target_m": [
+      0,
+      0,
+      90
+    ],
+    "ortho_scale_m": 5866.666666666667,
+    "focus_xy_m": [
+      0,
+      0
+    ],
+    "radius_m": 2350,
+    "mode": "downtown",
+    "samples": 12,
+    "description": "fixed4x4km working window, no relocated geography",
+    "camera_lonlat": [
+      -118.24590326933966,
+      34.03901922388071
+    ],
+    "camera_axis": "X grid east,Y grid north,Z up; meters"
+  },
+  "skyline_northwest": {
+    "position_m": [
+      -1502.169007331133,
+      2445.1143824593164,
+      209.05628053509034
+    ],
+    "target_m": [
+      -850,
+      1350,
+      170
+    ],
+    "focus_xy_m": [
+      0,
+      1000
+    ],
+    "radius_m": 5500,
+    "mode": "skyline",
+    "lens_mm": 35,
+    "samples": 16,
+    "camera_lonlat": [
+      -118.2625,
+      34.0609
+    ],
+    "camera_above_sampled_ground_m": 80.0,
+    "description": "georeferenced skyline view; elevated cameras explicitly recorded; repeated small traffic fixtures omitted at this distance",
+    "camera_axis": "X grid east,Y grid north,Z up; meters"
+  },
+  "skyline_northeast": {
+    "position_m": [
+      896.8379922117456,
+      2371.446079182904,
+      146.959890191759
+    ],
+    "target_m": [
+      -850,
+      1350,
+      170
+    ],
+    "focus_xy_m": [
+      0,
+      1000
+    ],
+    "radius_m": 5500,
+    "mode": "skyline",
+    "lens_mm": 35,
+    "samples": 16,
+    "camera_lonlat": [
+      -118.2365,
+      34.0605
+    ],
+    "camera_above_sampled_ground_m": 60.0,
+    "description": "georeferenced skyline view; elevated cameras explicitly recorded; repeated small traffic fixtures omitted at this distance",
+    "camera_axis": "X grid east,Y grid north,Z up; meters"
+  },
+  "skyline_south": {
+    "position_m": [
+      -1636.084904366755,
+      -924.7711933436804,
+      88.38943827817788
+    ],
+    "target_m": [
+      -850,
+      1350,
+      170
+    ],
+    "focus_xy_m": [
+      0,
+      1000
+    ],
+    "radius_m": 5500,
+    "mode": "skyline",
+    "lens_mm": 35,
+    "samples": 16,
+    "camera_lonlat": [
+      -118.2635,
+      34.0305
+    ],
+    "camera_above_sampled_ground_m": 20.0,
+    "description": "georeferenced skyline view; elevated cameras explicitly recorded; repeated small traffic fixtures omitted at this distance",
+    "camera_axis": "X grid east,Y grid north,Z up; meters"
+  },
+  "historic_core_street": {
+    "position_m": [
+      -462.9881523218355,
+      769.891940115951,
+      82.10483701214679
+    ],
+    "target_m": [
+      -544.9881523218355,
+      864.891940115951,
+      94.47772818939441
+    ],
+    "focus_xy_m": [
+      -462.9881523218355,
+      769.891940115951
+    ],
+    "radius_m": 650,
+    "mode": "street",
+    "lens_mm": 28,
+    "samples": 24,
+    "camera_lonlat": [
+      -118.25101983345672,
+      34.04591018580504
+    ],
+    "camera_above_sampled_ground_m": 1.7,
+    "description": "initial closeup block, inferred facade modules; not final stage07 survey-matched architecture",
+    "camera_axis": "X grid east,Y grid north,Z up; meters",
+    "exposure_stops": 1.0
+  },
+  "civic_center_street": {
+    "position_m": [
+      220,
+      1660,
+      94.52666778564453
+    ],
+    "target_m": [
+      102,
+      1815,
+      116.88290405273438
+    ],
+    "focus_xy_m": [
+      220,
+      1660
+    ],
+    "radius_m": 650,
+    "mode": "street",
+    "lens_mm": 28,
+    "samples": 24,
+    "camera_lonlat": [
+      -118.24373898857904,
+      34.05401110646765
+    ],
+    "camera_above_sampled_ground_m": 1.7,
+    "description": "initial closeup block, inferred facade modules; not final stage07 survey-matched architecture",
+    "camera_axis": "X grid east,Y grid north,Z up; meters"
+  }
+}

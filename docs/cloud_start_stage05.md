@@ -1,0 +1,12 @@
+每次开始先完整读取/workspace/Base/PROJECT_SPEC.md和STATUS.md。当前已完成阶段01–05检查点，阶段05为complete_with_documented_gaps；用户只授权到阶段05，等待第六部分，不自动执行阶段06–10。使用现有/workspace/Base checkout，不新建worktree，不重置或清除用户修改。
+依赖为项目.venv和requirements.lock的32个锁定包；缺依赖才执行bash scripts/bootstrap.sh。Blender /usr/bin/blender4.3.2及内置Python独立，不在普通Python混装bpy。CPU配额4核、32GiB；GPU/显存无法可靠读取，Cycles用CPU4线程、use_denoising=False。无需要恢复的常驻服务。
+启动检查：cd /workspace/Base；./project env；./project check --stage 5 --region city --quality medium。增量验证./project run --stage 5 --region city --quality medium只在输入和输出SHA匹配时复用，不称完整冷重建。用户编辑哈希不符时先另存，不静默覆盖。run互斥锁忙时退出75；阶段05其他区域/质量、阶段06–10和export退出3未实现。
+主模型scenes/stage05_city_medium.blend约2.14GiB，1096502栋活动建筑。data/processed/stage05/buildings.sqlite保存来源UID、年代、原始/报告/推断字段，FACE/POINT building_index关联i。13个类型，Downtown7316栋、两个近景104栋初版；完整作者/简化数据均在模型中，默认仅约150m静态显示，实际1001323可见三角形，全部唯一使用网格约1.126亿三角形。区域子集合B5_Authoring/Runtime/Modules和内嵌STAGE05_VIEW_PRESETS.py用于查看，不是运行时流送。
+七张真实CPU图和三张同机位来源/保存网格对比在work/previews/stage05。62栋保存模型抽样、全网格有限/退化/朝向/材质/唯一ID检查及区域集合几何哈希已实际通过。事实见outputs/stage05_city_medium_acceptance.json、stage05_city_medium.manifest.json、work/reports/stage05/blender_check.json、building_sample_audit.json、visual_inspection.json。只标记实际执行通过的检查，失败旧日志不是通过证据。
+县轮廓是屋顶线代理，不是已核实的地面外墙。主要采集于2008，另2014/2017/2020及少量更早；OSM PBF数据库状态2026-10-20T20:23:47Z不是采集年。多数OSM高度与县数据同源，不能作独立验证。HEIGHT正式定义仍未知，ELEV/OSM ele不得混入NAVD88；3个极异常候选改为明确类型估算，65栋保留报告高度但降为用途未知，其他冲突仍需核查。U.S.Bank公布1018ft=310.2864m，Wilshire1100ft=335.28m含尖塔，不能把全足迹挤出到尖塔总高。尖塔已依最高分部支撑，轮廓仍近似。
+保留6151栋高台基、305处入口连接、208处屋顶代理/估算路面重叠及21/62非水密/T形接点警告。近景地面/台基/人行道、材质、立面及入口仍需精修；无依据消防梯/太阳能/水箱只留模板不批量安放。原材质/颜色标签保留作研究，当前主要类型调色板与程序化窗格，不称逐栋真实外观。数据和影像是多年代组合，不称同日或2026完整实况；研究影像未作为纹理。
+延用EPSG32611与原点UTM(384992.75594820484,3767182.3649733574)m，X网格东、Y网格北、Z上，1BU=1m；USGS裸地NAVD88米、偏移0、夸张1。计算误差不代表源测量精度。市界Census2025参考2025-01-01，Downtown4x4km和两近景窗不移动，Santa Monica/Beverly Hills作为独立城市不自动补入。
+阶段04交通真实XY/源拓扑保留；50处源净空冲突、191处交叉层级不明、445处铁路净空警告、18处铁路层级不明、37处网格缺样、远道路遮盖和备用地形LOD接口等仍未知/未通过。原DEM和正式阶段01–04文件未改。21378个阶段04文件冻结于work/history/stage04_before_stage05并复核；更早历史继续保留。
+原始数据缓存不得替换latest，来源及SHA见各阶段source_registry。OSM需©OpenStreetMap contributors/ODbL1.0署名，不抓标准栅格瓦片。县/市资料公开访问不等于无限制再分发，网页/研究影像权利未知不转为纹理授权，未自动公开发布。
+可重建缓存已压缩/清理。work/cache/stage05/primary.sqlite.zst有解压SHA校验和自动恢复入口；展开县GDB可从原始ZIP恢复。第一次未验收阶段05草稿二进制不保留，只留增量几何/原行/哈希，不宣称字节级可恢复；正式阶段05模型和原始资料保留。云环境短暂offline后恢复并确认模型容器/图像完整。新任务冷恢复与完整冷重建尚未独立验证。
+本说明仅为启动草稿，保存不等于应用或发布；安装脚本、网络、凭据和仓库成员不作修改。未自动Git提交、推送或发布成果。
