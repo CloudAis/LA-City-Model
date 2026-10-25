@@ -1,0 +1,145 @@
+{
+  "version": "1.0.0",
+  "repo": "CloudAis/LA-City-Model",
+  "tag": "v1.0.0",
+  "format": "concatenated tar.gz",
+  "archive_sha256": "1f50310d4e030c4199fe968745b0948b79e99d21ef9502cf6f0f89a6577513e6",
+  "archive_bytes": 3486704146,
+  "file_count": 11596,
+  "uncompressed_file_bytes": 3997471178,
+  "delivery_manifest_sha256": "0a7bf351af46f518ed43cf40ba23a90fb0976a92c574a0d6f5bf4a7c75fbe50c",
+  "parts": [
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part001",
+      "bytes": 134217728,
+      "sha256": "26dc85c183cc84a3642ad423f4c51aac0560ea71e8bfffe04500d7900edb28bf"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part002",
+      "bytes": 134217728,
+      "sha256": "877507a89f60197caad85ee322bda5b3bd0b009ed7db9eb22054abf64dc6fe5c"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part003",
+      "bytes": 134217728,
+      "sha256": "1640ace4f0d93ed3aabf51082ed5e97cbbe561f4c1eb388a728c0e083d25b4bf"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part004",
+      "bytes": 134217728,
+      "sha256": "8651cbb8bdd9a7846eda62d882a5f5c7b7153c350a63a16adb87aa43495192e4"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part005",
+      "bytes": 134217728,
+      "sha256": "1ce7bb6724690a265441cc6388a5d9d70eda877bc537ddfd3ffacb483221e733"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part006",
+      "bytes": 134217728,
+      "sha256": "28c44a8d71975f638f4cdd087d32f329668fc5c72ff40849b8b9051e35942aae"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part007",
+      "bytes": 134217728,
+      "sha256": "c78a65958f90634472e6075ea81d0c3101b8880fbd783fb253d494317ffa195b"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part008",
+      "bytes": 134217728,
+      "sha256": "1ee1bf3fc57b86232c952f43da992cd571a4b7402a6eeb55ecb4531d0d25c3c6"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part009",
+      "bytes": 134217728,
+      "sha256": "dd4d44c0d169a33541b93765accbd3d922bc2a0a4e3e117e26a8394a21761409"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part010",
+      "bytes": 134217728,
+      "sha256": "ce7d03f5acb5363dfcd4642b83f70f15f821ea304e9bc4477da2a06a6df8b24f"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part011",
+      "bytes": 134217728,
+      "sha256": "252da1dad8e281e917af308837732506b6dd996a504fd22e0d95f1d6977afa78"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part012",
+      "bytes": 134217728,
+      "sha256": "aa6c7f8f64d6b832efc5def99220223abcfcee41f17b7225d67f742598982257"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part013",
+      "bytes": 134217728,
+      "sha256": "28a2f34cac77be7f20649889478424e3ebe236c00d266877c31d098d50cfe0f9"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part014",
+      "bytes": 134217728,
+      "sha256": "150a36cf1edf8467ba940e3f049bfabb50c4f76f85981eb1eb068e3dbad5d70c"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part015",
+      "bytes": 134217728,
+      "sha256": "7928748141497462c98b65a927a8759d0454110f4906dedeb9bf1b29e125f5f1"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part016",
+      "bytes": 134217728,
+      "sha256": "57ec0a6d4f9b936d7bcc81ec34920b7c326b72ac26603e00f1be122dde96cf66"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part017",
+      "bytes": 134217728,
+      "sha256": "3d0b16c39cf46cf55a115e26916bf039b14e09385e9479483dbe381278da8d1e"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part018",
+      "bytes": 134217728,
+      "sha256": "13527e8b91409c25e4638bdad821fe847fc9743a9262b725acba8a59ed5dda92"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part019",
+      "bytes": 134217728,
+      "sha256": "63427da1b52c0383d5978c807c3e3e57a942fcbbda82e3a3b3a0c81d56b00c11"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part020",
+      "bytes": 134217728,
+      "sha256": "f36ae7e2a8abc6e28b0ee7b93002b8d489af6669c4d53e6ba917f2009fb3375a"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part021",
+      "bytes": 134217728,
+      "sha256": "c8b0390af49fa65a43e837dffca227a9fa9b5ee595a2b9ca9a89ac71692f78e8"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part022",
+      "bytes": 134217728,
+      "sha256": "260f839f2a42bcddda4803ae61e30b7169fb874fae1f092a227d3c352262244d"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part023",
+      "bytes": 134217728,
+      "sha256": "ea5c4b48c9fb1cf1e5b8635ed86ad2e6689326324726f6e6bf0290719b2bc9ed"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part024",
+      "bytes": 134217728,
+      "sha256": "6613b867d8f0a2c11ec985fbea25525d8b54375ecd27de1f021f12763a18be59"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part025",
+      "bytes": 134217728,
+      "sha256": "67bd15aa0781dfb97b0c48fb710bbc8901e605c80e05438985fae6165642bde4"
+    },
+    {
+      "name": "LA_Delivery_1.0.tar.gz.part026",
+      "bytes": 131260946,
+      "sha256": "9793051d1fafc2e9cdfe380a4dcb0f5a79093b3650a2a60b572d1d085185f597"
+    }
+  ],
+  "source_data_and_historical_caches_included": false,
+  "private_handoff_not_a_public_redistribution_license": true
+}
