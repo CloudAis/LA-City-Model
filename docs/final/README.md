@@ -1,0 +1,1 @@
+此目录保存阶段10交付文档原文副本。文中previews、metadata、assets等证据路径均相对恢复后的LA_Delivery目录；下载及恢复方法见../GITHUB.md。原本地验收报告的部分通过状态保持不变。
